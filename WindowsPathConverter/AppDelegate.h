@@ -8,8 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate>
 
+@property (weak) IBOutlet NSTextField *output;
+@property (weak) IBOutlet NSTextField *input;
+
+- (IBAction)copyToClipboard:(id)sender;
 
 @end
 

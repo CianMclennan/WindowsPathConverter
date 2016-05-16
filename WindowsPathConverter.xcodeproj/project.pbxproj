@@ -11,6 +11,7 @@
 		8579F7931CCE4670007FC32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8579F7921CCE4670007FC32B /* main.m */; };
 		8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7941CCE4670007FC32B /* Assets.xcassets */; };
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
+		85DFB0341CCF9C0800C3942A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 85DFB0331CCF9C0800C3942A /* settings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8579F7941CCE4670007FC32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8579F7971CCE4671007FC32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8579F7991CCE4671007FC32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85DFB0331CCF9C0800C3942A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				8579F7961CCE4671007FC32B /* MainMenu.xib */,
 				8579F7991CCE4671007FC32B /* Info.plist */,
 				8579F7911CCE4670007FC32B /* Supporting Files */,
+				85DFB0331CCF9C0800C3942A /* settings.json */,
 			);
 			path = WindowsPathConverter;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DFB0341CCF9C0800C3942A /* settings.json in Resources */,
 				8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */,
 				8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */,
 			);
@@ -283,6 +287,7 @@
 				8579F79E1CCE4671007FC32B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
