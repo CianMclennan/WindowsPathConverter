@@ -10,6 +10,7 @@
 
 @interface PathConverter : NSObject
 
+-(instancetype)initWithConversionStrings:(NSDictionary*) conversionStrings;
 -(NSString*) windowsToUnix:(NSString*) windowsString;
 -(NSString*) unixToWindows:(NSString*) unixString;
 -(BOOL) stringIsWindowsPath:(NSString*) path;

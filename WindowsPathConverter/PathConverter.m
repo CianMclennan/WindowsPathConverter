@@ -27,8 +27,10 @@
         NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", [_conversionStrings objectForKey:key]];
         
         if ([windowsString rangeOfString:key].location != NSNotFound) {
-            NSString* unixString = [windowsString stringByReplacingOccurrencesOfString:windowsDrive withString:macVolume];
-            unixString = [unixString stringByReplacingOccurrencesOfString:@"\\" withString: @"/"];
+            NSString* unixString = [windowsString stringByReplacingOccurrencesOfString:windowsDrive
+                                                                            withString:macVolume];
+            unixString = [unixString stringByReplacingOccurrencesOfString:@"\\"
+                                                               withString: @"/"];
             return unixString;
         }
     }
@@ -42,7 +44,8 @@
         NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", [_conversionStrings objectForKey:key]];
         
         if ([unixString rangeOfString:macVolume].location != NSNotFound) {
-            NSString* windowsString = [unixString stringByReplacingOccurrencesOfString:macVolume withString:windowsDrive];
+            NSString* windowsString = [unixString stringByReplacingOccurrencesOfString:macVolume
+                                                                            withString:windowsDrive];
             windowsString = [windowsString stringByReplacingOccurrencesOfString:@"/" withString:@"\\"];
             return windowsString;
         }
