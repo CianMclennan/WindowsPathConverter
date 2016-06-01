@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8541F52F1CFF6C2A00DD1C22 /* FileReadWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8541F52E1CFF6C2A00DD1C22 /* FileReadWriter.m */; };
 		8579F7901CCE4670007FC32B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8579F78F1CCE4670007FC32B /* AppDelegate.m */; };
 		8579F7931CCE4670007FC32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8579F7921CCE4670007FC32B /* main.m */; };
 		8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7941CCE4670007FC32B /* Assets.xcassets */; };
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
+		85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B41FB01CFF39E700E5C28D /* PathConverter.m */; };
 		85DFB0341CCF9C0800C3942A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 85DFB0331CCF9C0800C3942A /* settings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8541F52D1CFF6C2A00DD1C22 /* FileReadWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileReadWriter.h; sourceTree = "<group>"; };
+		8541F52E1CFF6C2A00DD1C22 /* FileReadWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileReadWriter.m; sourceTree = "<group>"; };
 		8579F78B1CCE4670007FC32B /* WindowsPathConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindowsPathConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8579F78E1CCE4670007FC32B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8579F78F1CCE4670007FC32B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		8579F7941CCE4670007FC32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8579F7971CCE4671007FC32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8579F7991CCE4671007FC32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85B41FAF1CFF39E700E5C28D /* PathConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathConverter.h; sourceTree = "<group>"; };
+		85B41FB01CFF39E700E5C28D /* PathConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathConverter.m; sourceTree = "<group>"; };
 		85DFB0331CCF9C0800C3942A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +68,10 @@
 				8579F7991CCE4671007FC32B /* Info.plist */,
 				8579F7911CCE4670007FC32B /* Supporting Files */,
 				85DFB0331CCF9C0800C3942A /* settings.json */,
+				85B41FAF1CFF39E700E5C28D /* PathConverter.h */,
+				85B41FB01CFF39E700E5C28D /* PathConverter.m */,
+				8541F52D1CFF6C2A00DD1C22 /* FileReadWriter.h */,
+				8541F52E1CFF6C2A00DD1C22 /* FileReadWriter.m */,
 			);
 			path = WindowsPathConverter;
 			sourceTree = "<group>";
@@ -144,8 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8541F52F1CFF6C2A00DD1C22 /* FileReadWriter.m in Sources */,
 				8579F7931CCE4670007FC32B /* main.m in Sources */,
 				8579F7901CCE4670007FC32B /* AppDelegate.m in Sources */,
+				85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

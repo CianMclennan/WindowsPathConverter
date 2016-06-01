@@ -1,0 +1,5 @@
+{
+    "windows_drives": {"P:": "production",
+                       "R:": "resources",
+                       "V:": "videos"}
+}

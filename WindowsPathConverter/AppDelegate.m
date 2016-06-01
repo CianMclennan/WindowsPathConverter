@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
-#define PRODUCTION_WINDOWS @"P:"
-#define PRODUCTION_MAC @"/Volumes/production"
+#import "PathConverter.h"
+#import "FileReadWriter.h"
 
 @interface AppDelegate ()
 
@@ -18,12 +17,12 @@
 
 @implementation AppDelegate
 {
-    NSDictionary* windowsDriveSetup;
+    PathConverter* _pathConverter;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.input.delegate = self;
-    self.settings;
+    _pathConverter = self.settings[@"windows_drives"];
 }
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
 {
@@ -33,27 +32,9 @@
 
 -(void)controlTextDidChange:(NSNotification *)obj
 {
-    self.output.stringValue = [self currentInputIsWindowsString] ? [self windowsToUnix:self.input.stringValue] : [self unixToWindows:self.input.stringValue];
-}
-
--(BOOL) currentInputIsWindowsString
-{
-    NSString* input = self.input.stringValue;
-    return [input containsString:PRODUCTION_WINDOWS] || [[input substringToIndex:1] isEqualToString:@"\\"];
-}
-
--(NSString*) windowsToUnix:(NSString*) windowsString
-{
-    NSString* unixString = [windowsString stringByReplacingOccurrencesOfString:PRODUCTION_WINDOWS withString:PRODUCTION_MAC];
-    unixString = [unixString stringByReplacingOccurrencesOfString:@"\\" withString: @"/"];
-    return unixString;
-}
-
--(NSString*) unixToWindows:(NSString*) unixString
-{
-    NSString* windowsString = [unixString stringByReplacingOccurrencesOfString:PRODUCTION_MAC withString:PRODUCTION_WINDOWS];
-    windowsString = [windowsString stringByReplacingOccurrencesOfString:@"/" withString:@"\\"];
-    return windowsString;
+    NSString* inputString = self.input.stringValue;
+    BOOL isWindowsPath = [_pathConverter stringIsWindowsPath:inputString];
+    self.output.stringValue = isWindowsPath ? [_pathConverter windowsToUnix:inputString] : [_pathConverter unixToWindows:inputString];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -72,19 +53,15 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationDocumentsDirectory = [self applicationDocumentsDirectory];
     NSURL *settingsFile = [applicationDocumentsDirectory URLByAppendingPathComponent:@"settings.json" isDirectory:NO];
-    if(![fileManager fileExistsAtPath:[settingsFile absoluteString]])
-    {
-        NSError* error;
-        NSString* defaultSettings = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"json"];
-        NSString* destination = [[applicationDocumentsDirectory URLByAppendingPathComponent:@"settings.json"] absoluteString];
-        
-        
-        [fileManager copyItemAtPath:defaultSettings toPath:destination error:&error];
-//        [fileManager copyItemAtURL:defaultSettings toURL:destination error:&error];
-        if (error) @throw [NSException exceptionWithName:@"SettingsException" reason:[error description] userInfo:nil];
+    NSString* contentOfFile = nil;
+    if(![fileManager fileExistsAtPath:settingsFile.path]) {
+        NSURL* defaultSettings = [[NSBundle mainBundle] URLForResource:@"settings" withExtension:@"json" subdirectory:nil localization:nil];
+        contentOfFile = [FileReadWriter readTextFromURL:defaultSettings];
+        [FileReadWriter writeText:contentOfFile toFile:settingsFile];
     }
-    
-    
+    if(!contentOfFile) contentOfFile = [FileReadWriter readTextFromURL:settingsFile];
+    NSError *error;
+    settings = [NSJSONSerialization JSONObjectWithData:[contentOfFile dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
     return settings;
 }
 
