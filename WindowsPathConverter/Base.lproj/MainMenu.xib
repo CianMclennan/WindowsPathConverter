@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
@@ -669,11 +669,11 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="WindowsPathConverter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="WindowsPathConverter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="116"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -694,24 +694,36 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOK-qf-DyE">
-                        <rect key="frame" x="385" y="13" width="81" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dOK-qf-DyE">
+                        <rect key="frame" x="394" y="13" width="72" height="32"/>
                         <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YQk-JK-RjK">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="copyToClipboard:" target="Voe-Tx-rLC" id="jnd-wR-R8s"/>
+                            <action selector="copyButtonPressed:" target="Voe-Tx-rLC" id="0oj-Bz-soK"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UXC-ay-FIm">
+                        <rect key="frame" x="321" y="13" width="73" height="32"/>
+                        <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T5S-wC-LYH">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openButtonPressed:" target="Voe-Tx-rLC" id="sob-Vl-gea"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="Da9-qL-9tR"/>
+                    <constraint firstItem="dOK-qf-DyE" firstAttribute="leading" secondItem="UXC-ay-FIm" secondAttribute="trailing" constant="12" symbolic="YES" id="I0M-TN-SXZ"/>
                     <constraint firstItem="dOK-qf-DyE" firstAttribute="top" secondItem="5Mg-pf-nRL" secondAttribute="bottom" constant="8" id="IQd-6l-PcO"/>
                     <constraint firstAttribute="bottom" secondItem="dOK-qf-DyE" secondAttribute="bottom" constant="20" symbolic="YES" id="YpJ-rm-PQY"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="arX-ML-w1Z"/>
                     <constraint firstAttribute="trailing" secondItem="dOK-qf-DyE" secondAttribute="trailing" constant="20" id="bhB-9O-Ifi"/>
                     <constraint firstAttribute="trailing" secondItem="5Mg-pf-nRL" secondAttribute="trailing" constant="20" id="cs9-3e-yAo"/>
+                    <constraint firstItem="UXC-ay-FIm" firstAttribute="centerY" secondItem="dOK-qf-DyE" secondAttribute="centerY" id="lAe-Ot-LQh"/>
                     <constraint firstAttribute="trailing" secondItem="aGz-Er-l8y" secondAttribute="trailing" constant="20" symbolic="YES" id="nGT-bu-Efw"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="o8R-te-r6M"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="top" secondItem="aGz-Er-l8y" secondAttribute="bottom" constant="8" id="oDm-Bv-gAS"/>

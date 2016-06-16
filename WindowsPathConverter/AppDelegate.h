@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSMenuDelegate, NSWindowDelegate>
 
 @property (weak) IBOutlet NSTextField *output;
 @property (weak) IBOutlet NSTextField *input;
 
-- (IBAction)copyToClipboard:(id)sender;
+- (IBAction)copyButtonPressed:(id)sender;
+- (IBAction)openButtonPressed:(id)sender;
 
 @end
 
