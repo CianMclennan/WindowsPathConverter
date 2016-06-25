@@ -12,13 +12,18 @@
 #import "CustomStatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
+#import <MASShortcut/Shortcut.h>
 
 @interface AppDelegate ()
 
+@property (weak) IBOutlet MASShortcutView *shortCutView;
 @property (weak) IBOutlet FloatingWindow* window;
 @property (strong, nonatomic) NSStatusItem* statusItem;
 @property (strong, nonatomic) NSMenu* statusMenu;
+
 @end
+
+static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 
 @implementation AppDelegate
 {
@@ -34,14 +39,21 @@
     self.statusItem = [self createStatusBarButton];
     self.statusMenu = [self createStatusMenu];
     
-//    [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
-//    NSLog(@"%ld", (long)NSApp.activationPolicy);
+    // Associate the shortcut view with user defaults
+    self.shortCutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut;
     
+    // Associate the preference key with an action
+    [[MASShortcutBinder sharedBinder]
+     bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
+     toAction:^{
+         [self toggleWindow];
+     }];
     self.window.alphaValue = 0.0f;
+    [self hideWindow];
 }
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
 {
-    [self.window makeKeyAndOrderFront:self];
+    [self displayWindow];
     return YES;
 }
 
@@ -148,15 +160,35 @@
 }
 
 -(void)windowDidResignKey:(NSNotification *)notification{
-    [[self.window animator] setAlphaValue:0.0f];
+    [self hideWindow];
+}
+-(void)windowDidResignMain:(NSNotification *)notification{
+    [self hideWindow];
 }
 
 -(void)statusItemClicked: (id) sender{
-    [[self.window animator] setAlphaValue:1.0f];
-    [self.window makeKeyAndOrderFront:self];
-    [self.window makeMainWindow];
-    [self.input becomeFirstResponder];
+    [self toggleWindow];
     [(CustomStatusItem*)self.statusItem.view setHighlightState:NO];
+}
+
+-(void) toggleWindow{
+    self.window.alphaValue ? [self hideWindow] : [self displayWindow];
+}
+-(void) displayWindow
+{
+    [self.window makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
+    self.window.alphaValue = 0.0f;
+    [[self.window animator] setAlphaValue:1.0f];
+    [self.input becomeFirstResponder];
+}
+-(void) hideWindow{
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setCompletionHandler:^{
+        [self.window close];
+    }];
+    [[self.window animator] setAlphaValue:0.0f];
+    [NSAnimationContext endGrouping];
 }
 -(void)statusItemSecondaryClicked: (id) sender{
     [self.statusItem popUpStatusItemMenu:self.statusMenu];

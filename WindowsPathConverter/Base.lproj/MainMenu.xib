@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="input" destination="aGz-Er-l8y" id="3tl-fk-7lK"/>
                 <outlet property="output" destination="5Mg-pf-nRL" id="v5x-Qg-TLO"/>
+                <outlet property="shortCutView" destination="HlD-wg-4Hy" id="9OM-al-2dx"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -714,16 +715,26 @@
                             <action selector="openButtonPressed:" target="Voe-Tx-rLC" id="sob-Vl-gea"/>
                         </connections>
                     </button>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="HlD-wg-4Hy" customClass="MASShortcutView">
+                        <rect key="frame" x="20" y="20" width="97" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="97" id="q7g-RL-1mu"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="bottom" secondItem="UXC-ay-FIm" secondAttribute="bottom" id="141-5g-M9C"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="Da9-qL-9tR"/>
                     <constraint firstItem="dOK-qf-DyE" firstAttribute="leading" secondItem="UXC-ay-FIm" secondAttribute="trailing" constant="12" symbolic="YES" id="I0M-TN-SXZ"/>
                     <constraint firstItem="dOK-qf-DyE" firstAttribute="top" secondItem="5Mg-pf-nRL" secondAttribute="bottom" constant="8" id="IQd-6l-PcO"/>
+                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="top" secondItem="UXC-ay-FIm" secondAttribute="top" id="S27-ag-Mtd"/>
                     <constraint firstAttribute="bottom" secondItem="dOK-qf-DyE" secondAttribute="bottom" constant="20" symbolic="YES" id="YpJ-rm-PQY"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="arX-ML-w1Z"/>
                     <constraint firstAttribute="trailing" secondItem="dOK-qf-DyE" secondAttribute="trailing" constant="20" id="bhB-9O-Ifi"/>
                     <constraint firstAttribute="trailing" secondItem="5Mg-pf-nRL" secondAttribute="trailing" constant="20" id="cs9-3e-yAo"/>
+                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="centerY" secondItem="UXC-ay-FIm" secondAttribute="centerY" id="jLK-8H-ftx"/>
                     <constraint firstItem="UXC-ay-FIm" firstAttribute="centerY" secondItem="dOK-qf-DyE" secondAttribute="centerY" id="lAe-Ot-LQh"/>
+                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="m5g-ah-PQl"/>
                     <constraint firstAttribute="trailing" secondItem="aGz-Er-l8y" secondAttribute="trailing" constant="20" symbolic="YES" id="nGT-bu-Efw"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="o8R-te-r6M"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="top" secondItem="aGz-Er-l8y" secondAttribute="bottom" constant="8" id="oDm-Bv-gAS"/>
