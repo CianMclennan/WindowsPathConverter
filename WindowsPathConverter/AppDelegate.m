@@ -179,7 +179,10 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
     self.window.alphaValue = 0.0f;
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:0.1f];
     [[self.window animator] setAlphaValue:1.0f];
+    [NSAnimationContext endGrouping];
     [self.input becomeFirstResponder];
 }
 -(void) hideWindow{
@@ -187,6 +190,7 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     [[NSAnimationContext currentContext] setCompletionHandler:^{
         [self.window close];
     }];
+    [[NSAnimationContext currentContext] setDuration:0.1f];
     [[self.window animator] setAlphaValue:0.0f];
     [NSAnimationContext endGrouping];
 }
