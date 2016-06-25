@@ -10,11 +10,12 @@
 #import "PathConverter.h"
 #import "FileReadWriter.h"
 #import "CustomStatusItem.h"
+#import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 
 @interface AppDelegate ()
 
-@property (strong) IBOutlet NSWindow* window;
+@property (weak) IBOutlet FloatingWindow* window;
 @property (strong, nonatomic) NSStatusItem* statusItem;
 @property (strong, nonatomic) NSMenu* statusMenu;
 @end
@@ -32,6 +33,11 @@
     self.window.delegate = self;
     self.statusItem = [self createStatusBarButton];
     self.statusMenu = [self createStatusMenu];
+    
+//    [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
+//    NSLog(@"%ld", (long)NSApp.activationPolicy);
+    
+    self.window.alphaValue = 0.0f;
 }
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
 {
@@ -50,12 +56,10 @@
 
 - (IBAction)copyButtonPressed:(id)sender {
     [self copyStringToClipBoard:self.output.stringValue];
+//    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
 }
 - (IBAction)openButtonPressed:(id)sender {
     [self openPath:@[self.output.stringValue, self.input.stringValue]];
-}
--(void)windowDidResignKey:(NSNotification *)notification{
-    [self.window close];
 }
 
 #pragma mark - Helper Methods
@@ -137,16 +141,24 @@
 }
 -(NSMenu*) createStatusMenu{
     NSMenu *menu = [[NSMenu alloc] init];
+    [menu addItemWithTitle:@"Open" action:@selector(statusItemClicked:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     menu.delegate = self;
     return menu;
 }
 
--(void)statusItemClicked: (NSStatusItem*) sender{
+-(void)windowDidResignKey:(NSNotification *)notification{
+    [[self.window animator] setAlphaValue:0.0f];
+}
+
+-(void)statusItemClicked: (id) sender{
+    [[self.window animator] setAlphaValue:1.0f];
     [self.window makeKeyAndOrderFront:self];
+    [self.window makeMainWindow];
+    [self.input becomeFirstResponder];
     [(CustomStatusItem*)self.statusItem.view setHighlightState:NO];
 }
--(void)statusItemSecondaryClicked: (NSStatusItem*) sender{
+-(void)statusItemSecondaryClicked: (id) sender{
     [self.statusItem popUpStatusItemMenu:self.statusMenu];
 }
 - (void)menuDidClose:(NSMenu *)menu{

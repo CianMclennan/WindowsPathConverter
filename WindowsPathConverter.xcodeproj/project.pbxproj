@@ -14,6 +14,7 @@
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
 		85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B41FB01CFF39E700E5C28D /* PathConverter.m */; };
 		85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B767B51D1328BB009E09AA /* CustomStatusItem.m */; };
+		85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */; };
 		85DFB0341CCF9C0800C3942A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 85DFB0331CCF9C0800C3942A /* settings.json */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		85B41FB01CFF39E700E5C28D /* PathConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathConverter.m; sourceTree = "<group>"; };
 		85B767B41D1328BB009E09AA /* CustomStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusItem.h; sourceTree = "<group>"; };
 		85B767B51D1328BB009E09AA /* CustomStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusItem.m; sourceTree = "<group>"; };
+		85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingWindow.h; sourceTree = "<group>"; };
+		85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingWindow.m; sourceTree = "<group>"; };
 		85DFB0331CCF9C0800C3942A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +80,8 @@
 				8541F52E1CFF6C2A00DD1C22 /* FileReadWriter.m */,
 				85B767B41D1328BB009E09AA /* CustomStatusItem.h */,
 				85B767B51D1328BB009E09AA /* CustomStatusItem.m */,
+				85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */,
+				85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */,
 			);
 			path = WindowsPathConverter;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				8541F52F1CFF6C2A00DD1C22 /* FileReadWriter.m in Sources */,
 				85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */,
 				8579F7931CCE4670007FC32B /* main.m in Sources */,
+				85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */,
 				8579F7901CCE4670007FC32B /* AppDelegate.m in Sources */,
 				85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */,
 			);
