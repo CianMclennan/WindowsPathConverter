@@ -13,6 +13,7 @@
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 #import <MASShortcut/Shortcut.h>
+#import "WindowsPathConverterSettings.h"
 
 @interface AppDelegate ()
 
@@ -21,19 +22,23 @@
 @property (strong, nonatomic) NSStatusItem* statusItem;
 @property (strong, nonatomic) NSMenu* statusMenu;
 
+@property (strong, nonatomic) WindowsPathConverterSettings* settings;
+@property (strong, nonatomic) PathConverter* pathConverter;
+
 @end
 
 static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 
 @implementation AppDelegate
-{
-    PathConverter* _pathConverter;
-}
 
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.input.delegate = self;
-    _pathConverter = [[PathConverter alloc] initWithConversionStrings:self.settings[@"windows_drives"]];
+    NSURL *settingsFile = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"settings.json"
+                                                                                isDirectory:NO];
+    self.settings = [[WindowsPathConverterSettings alloc] initWithJSONFilePath:settingsFile];
+    self.pathConverter = [[PathConverter alloc] initWithConversionStrings:self.settings.windowsDrives];
+    
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.delegate = self;
     self.statusItem = [self createStatusBarButton];
@@ -108,33 +113,6 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     NSURL *appSupportURL = [[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory
                                                                    inDomains:NSUserDomainMask] lastObject];
     return [appSupportURL URLByAppendingPathComponent:@"WindowsPathConverter"];
-}
-
-#pragma mark - Settings Getter
-
--(NSDictionary*)settings
-{
-    NSDictionary* settings = nil;
-    NSString* contentOfFile = nil;
-    
-    NSURL *settingsFile = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"settings.json"
-                                                                                isDirectory:NO];
-    
-    if(![[NSFileManager defaultManager] fileExistsAtPath:settingsFile.path]) {
-        NSURL* defaultSettings = [[NSBundle mainBundle] URLForResource:@"settings"
-                                                         withExtension:@"json"
-                                                          subdirectory:nil
-                                                          localization:nil];
-        contentOfFile = [FileReadWriter readTextFromURL:defaultSettings];
-        [FileReadWriter writeText:contentOfFile toFile:settingsFile];
-    }
-    
-    if(!contentOfFile) contentOfFile = [FileReadWriter readTextFromURL:settingsFile];
-    NSError *error;
-    settings = [NSJSONSerialization JSONObjectWithData:[contentOfFile dataUsingEncoding:NSUTF8StringEncoding]
-                                               options:0
-                                                 error:&error];
-    return settings;
 }
 
 #pragma mark - Status Bar Button Code
