@@ -36,6 +36,22 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     self.input.delegate = self;
     NSURL *settingsFile = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"settings.json"
                                                                                 isDirectory:NO];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[settingsFile path]])
+    {
+        NSError* error;
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"json"];
+        [[NSFileManager defaultManager] createDirectoryAtPath: [self.applicationDocumentsDirectory path]
+                                  withIntermediateDirectories: YES
+                                                   attributes: nil
+                                                        error: &error];
+        if(error){
+            NSLog(@"Cannot create documents directory.");
+        }
+        [[NSFileManager defaultManager] copyItemAtPath:path toPath:[settingsFile path] error:&error];
+        if(error){
+            NSLog(@"Cannot create settings file.");
+        }
+    }
     self.settings = [[WindowsPathConverterSettings alloc] initWithJSONFilePath:settingsFile];
     self.pathConverter = [[PathConverter alloc] initWithConversionStrings:self.settings.windowsDrives];
     
