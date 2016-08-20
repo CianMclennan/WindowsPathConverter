@@ -136,7 +136,7 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 -(NSStatusItem*) createStatusBarButton
 {
     CustomStatusItem* statusView = [[CustomStatusItem alloc] init];
-    statusView.image = [NSImage imageNamed:@"bat23"];
+    statusView.image = [NSImage imageNamed:@"toolbarIcon"];
     statusView.target = self;
     statusView.action = @selector(statusItemClicked:);
     statusView.rightAction = @selector(statusItemSecondaryClicked:);
