@@ -23,12 +23,13 @@
 -(NSString*) windowsToUnix:(NSString*) windowsString
 {
     for (NSString* key in _conversionStrings) {
-        NSString* windowsDrive = key;
         NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", [_conversionStrings objectForKey:key]];
+        NSRange rangeOfWindowsDrive = [[windowsString lowercaseString] rangeOfString:[key lowercaseString]];
+        NSUInteger lengthOfString = rangeOfWindowsDrive.location+rangeOfWindowsDrive.length;
         
-        if ([windowsString rangeOfString:key].location != NSNotFound) {
-            NSString* unixString = [windowsString stringByReplacingOccurrencesOfString:windowsDrive
-                                                                            withString:macVolume];
+        if (rangeOfWindowsDrive.location != NSNotFound) {
+            NSString* unixString = [NSString stringWithFormat:@"%@%@", macVolume, [windowsString substringWithRange: NSMakeRange(lengthOfString, windowsString.length-lengthOfString)]];
+            
             unixString = [unixString stringByReplacingOccurrencesOfString:@"\\"
                                                                withString: @"/"];
             return unixString;
@@ -55,8 +56,9 @@
 
 -(BOOL) stringIsWindowsPath:(NSString*) path
 {
+    path = [path lowercaseString];
     for (NSString* key in _conversionStrings) {
-        if([path rangeOfString:key].location != NSNotFound)
+        if([path rangeOfString:[key lowercaseString]].location != NSNotFound)
             return YES;
     }
     return NO;
