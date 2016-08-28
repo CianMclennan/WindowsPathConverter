@@ -7,22 +7,50 @@
 //
 
 #define WINDOWS_DRIVES @"windows_drives"
+#define DOCUMENTS_DIRECTORY [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"WindowsPathConverter"]
 
 #import "WindowsPathConverterSettings.h"
 
 
 @interface WindowsPathConverterSettings ()
-@property(nonatomic, strong) NSDictionary* windowsDrives;
+
 @end
 
 @implementation WindowsPathConverterSettings
 
--(instancetype)initWithJSONFilePath:(NSURL *)url{
-    self = [super initWithJSONFilePath:url];
-    if(self){
-        self.windowsDrives = self.settingsDictionary[WINDOWS_DRIVES];
-    }
-    return self;
+-(NSDictionary *)windowsDrives{
+    return self.settingsDictionary[WINDOWS_DRIVES];
+}
+
++ (id)sharedSettings {
+    static WindowsPathConverterSettings *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        NSURL *settingsFile = [DOCUMENTS_DIRECTORY URLByAppendingPathComponent:@"settings.json"
+                                                                                    isDirectory:NO];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:[settingsFile path]])
+        {
+            NSError* error;
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"json"];
+            [[NSFileManager defaultManager] createDirectoryAtPath: [DOCUMENTS_DIRECTORY path]
+                                      withIntermediateDirectories: YES
+                                                       attributes: nil
+                                                            error: &error];
+            if(error){
+                NSLog(@"Cannot create documents directory.");
+            }
+            [[NSFileManager defaultManager] copyItemAtPath:path toPath:[settingsFile path] error:&error];
+            if(error){
+                NSLog(@"Cannot create settings file.");
+            }
+        }
+        
+        sharedMyManager = [[self alloc] initWithJSONFilePath:settingsFile];
+        
+    });
+    
+    return sharedMyManager;
 }
 
 @end

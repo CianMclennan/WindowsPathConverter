@@ -16,6 +16,7 @@
 		8579F7931CCE4670007FC32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8579F7921CCE4670007FC32B /* main.m */; };
 		8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7941CCE4670007FC32B /* Assets.xcassets */; };
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
+		85A9148F1D732346003F9EE9 /* PrefrencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */; };
 		85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B41FB01CFF39E700E5C28D /* PathConverter.m */; };
 		85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B767B51D1328BB009E09AA /* CustomStatusItem.m */; };
 		85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */; };
@@ -40,6 +41,8 @@
 		8579F7941CCE4670007FC32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8579F7971CCE4671007FC32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8579F7991CCE4671007FC32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefrencesViewController.h; sourceTree = "<group>"; };
+		85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefrencesViewController.m; sourceTree = "<group>"; };
 		85B41FAF1CFF39E700E5C28D /* PathConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathConverter.h; sourceTree = "<group>"; };
 		85B41FB01CFF39E700E5C28D /* PathConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathConverter.m; sourceTree = "<group>"; };
 		85B767B41D1328BB009E09AA /* CustomStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusItem.h; sourceTree = "<group>"; };
@@ -81,12 +84,9 @@
 				85B767B51D1328BB009E09AA /* CustomStatusItem.m */,
 				85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */,
 				85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */,
-				853398EB1D20424300759D9A /* Settings.h */,
-				853398EC1D20424300759D9A /* Settings.m */,
+				85A9148C1D73208E003F9EE9 /* Settings */,
 				853398EE1D20440700759D9A /* JSONParser.h */,
 				853398EF1D20440700759D9A /* JSONParser.m */,
-				853398F21D20505300759D9A /* WindowsPathConverterSettings.h */,
-				853398F31D20505300759D9A /* WindowsPathConverterSettings.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -114,6 +114,8 @@
 			children = (
 				8579F78E1CCE4670007FC32B /* AppDelegate.h */,
 				8579F78F1CCE4670007FC32B /* AppDelegate.m */,
+				85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */,
+				85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */,
 				8579F7941CCE4670007FC32B /* Assets.xcassets */,
 				8579F7961CCE4671007FC32B /* MainMenu.xib */,
 				8579F7991CCE4671007FC32B /* Info.plist */,
@@ -130,6 +132,17 @@
 				8579F7921CCE4670007FC32B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85A9148C1D73208E003F9EE9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				853398EB1D20424300759D9A /* Settings.h */,
+				853398EC1D20424300759D9A /* Settings.m */,
+				853398F21D20505300759D9A /* WindowsPathConverterSettings.h */,
+				853398F31D20505300759D9A /* WindowsPathConverterSettings.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		C0F6883204F85076D712F952 /* Pods */ = {
@@ -265,6 +278,7 @@
 				8541F52F1CFF6C2A00DD1C22 /* FileReadWriter.m in Sources */,
 				85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */,
 				8579F7931CCE4670007FC32B /* main.m in Sources */,
+				85A9148F1D732346003F9EE9 /* PrefrencesViewController.m in Sources */,
 				85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */,
 				853398F41D20505300759D9A /* WindowsPathConverterSettings.m in Sources */,
 				8579F7901CCE4670007FC32B /* AppDelegate.m in Sources */,

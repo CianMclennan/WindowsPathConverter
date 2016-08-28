@@ -12,6 +12,6 @@
 
 @property(readonly) NSDictionary* windowsDrives;
 
--(instancetype)initWithJSONFilePath:(NSURL *)url;
++ (WindowsPathConverterSettings*)sharedSettings;
 
 @end

@@ -22,7 +22,6 @@
 @property (strong, nonatomic) NSStatusItem* statusItem;
 @property (strong, nonatomic) NSMenu* statusMenu;
 
-@property (strong, nonatomic) WindowsPathConverterSettings* settings;
 @property (strong, nonatomic) PathConverter* pathConverter;
 
 @end
@@ -34,26 +33,8 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.input.delegate = self;
-    NSURL *settingsFile = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"settings.json"
-                                                                                isDirectory:NO];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:[settingsFile path]])
-    {
-        NSError* error;
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"json"];
-        [[NSFileManager defaultManager] createDirectoryAtPath: [self.applicationDocumentsDirectory path]
-                                  withIntermediateDirectories: YES
-                                                   attributes: nil
-                                                        error: &error];
-        if(error){
-            NSLog(@"Cannot create documents directory.");
-        }
-        [[NSFileManager defaultManager] copyItemAtPath:path toPath:[settingsFile path] error:&error];
-        if(error){
-            NSLog(@"Cannot create settings file.");
-        }
-    }
-    self.settings = [[WindowsPathConverterSettings alloc] initWithJSONFilePath:settingsFile];
-    self.pathConverter = [[PathConverter alloc] initWithConversionStrings:self.settings.windowsDrives];
+    
+    self.pathConverter = [[PathConverter alloc] initWithConversionStrings:WindowsPathConverterSettings.sharedSettings.windowsDrives];
     
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.delegate = self;
