@@ -28,13 +28,16 @@
     [self.tableView reloadData];
 }
 - (IBAction)addButtonPressed:(NSButton *)sender {
+    [self.window beginSheet:self.modalWindow completionHandler:^(NSModalResponse returnCode) {
+        [self.tableView reloadData];
+    }];
 }
 
 - (IBAction)subtractButtonPressed:(NSButton *)sender {
     if (self.tableView.selectedRow < 0) return;
     NSTableCellView* cell = [[self.tableView rowViewAtRow:self.tableView.selectedRow makeIfNecessary:NO] viewAtColumn:0];
-    
     [WindowsPathConverterSettings.sharedSettings removeWindowsDriveWithKey: cell.textField.stringValue];
+    [self.tableView reloadData];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{

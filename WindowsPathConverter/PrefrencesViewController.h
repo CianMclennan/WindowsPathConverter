@@ -7,14 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AddDriveViewController.h"
 
 @interface PrefrencesViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 
+@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSWindow *modalWindow;
 @property (weak) IBOutlet NSTableView *tableView;
 
 - (IBAction)addButtonPressed:(NSButton *)sender;
 - (IBAction)subtractButtonPressed:(NSButton *)sender;
-
-
 
 @end

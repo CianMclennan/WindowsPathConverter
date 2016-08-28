@@ -12,6 +12,7 @@
 
 @property (weak) IBOutlet NSTextField *output;
 @property (weak) IBOutlet NSTextField *input;
+@property (weak) IBOutlet NSWindow *prefrencesWindow;
 
 - (IBAction)copyButtonPressed:(id)sender;
 - (IBAction)openButtonPressed:(id)sender;

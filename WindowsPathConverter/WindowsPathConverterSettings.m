@@ -22,6 +22,13 @@
     return self.settingsDictionary[WINDOWS_DRIVES];
 }
 
+-(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) macVolume
+{
+    NSMutableDictionary* windowsDrives = [self.windowsDrives mutableCopy];
+    windowsDrives[windowsDrive] = macVolume;
+    [self updateSettingsWithObject:windowsDrives forKey:WINDOWS_DRIVES];
+    [self save];
+}
 -(void) removeWindowsDriveWithKey:(NSString*) key
 {
     NSMutableDictionary* windowsDrives = [self.windowsDrives mutableCopy];

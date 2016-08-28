@@ -17,6 +17,7 @@
 		8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7941CCE4670007FC32B /* Assets.xcassets */; };
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
 		85A9148F1D732346003F9EE9 /* PrefrencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */; };
+		85A914941D7368A0003F9EE9 /* AddDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A914921D7368A0003F9EE9 /* AddDriveViewController.m */; };
 		85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B41FB01CFF39E700E5C28D /* PathConverter.m */; };
 		85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B767B51D1328BB009E09AA /* CustomStatusItem.m */; };
 		85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */; };
@@ -43,6 +44,8 @@
 		8579F7991CCE4671007FC32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefrencesViewController.h; sourceTree = "<group>"; };
 		85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefrencesViewController.m; sourceTree = "<group>"; };
+		85A914911D7368A0003F9EE9 /* AddDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDriveViewController.h; sourceTree = "<group>"; };
+		85A914921D7368A0003F9EE9 /* AddDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriveViewController.m; sourceTree = "<group>"; };
 		85B41FAF1CFF39E700E5C28D /* PathConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathConverter.h; sourceTree = "<group>"; };
 		85B41FB01CFF39E700E5C28D /* PathConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathConverter.m; sourceTree = "<group>"; };
 		85B767B41D1328BB009E09AA /* CustomStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusItem.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				8579F78F1CCE4670007FC32B /* AppDelegate.m */,
 				85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */,
 				85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */,
+				85A914911D7368A0003F9EE9 /* AddDriveViewController.h */,
+				85A914921D7368A0003F9EE9 /* AddDriveViewController.m */,
 				8579F7941CCE4670007FC32B /* Assets.xcassets */,
 				8579F7961CCE4671007FC32B /* MainMenu.xib */,
 				8579F7991CCE4671007FC32B /* Info.plist */,
@@ -286,6 +291,7 @@
 				8541F52F1CFF6C2A00DD1C22 /* FileReadWriter.m in Sources */,
 				85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */,
 				8579F7931CCE4670007FC32B /* main.m in Sources */,
+				85A914941D7368A0003F9EE9 /* AddDriveViewController.m in Sources */,
 				85A9148F1D732346003F9EE9 /* PrefrencesViewController.m in Sources */,
 				85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */,
 				853398F41D20505300759D9A /* WindowsPathConverterSettings.m in Sources */,

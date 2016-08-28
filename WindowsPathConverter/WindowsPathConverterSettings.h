@@ -14,5 +14,6 @@
 
 + (WindowsPathConverterSettings*)sharedSettings;
 - (void)removeWindowsDriveWithKey:(NSString*) key;
+-(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) macVolume;
 
 @end

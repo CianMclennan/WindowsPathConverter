@@ -129,11 +129,15 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 -(NSMenu*) createStatusMenu{
     NSMenu *menu = [[NSMenu alloc] init];
     [menu addItemWithTitle:@"Open" action:@selector(statusItemClicked:) keyEquivalent:@""];
+    [menu addItemWithTitle:@"Prefrences..." action:@selector(openPrefrences:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     menu.delegate = self;
     return menu;
 }
 
+-(void) openPrefrences: (id) sender {
+    [self.prefrencesWindow makeKeyAndOrderFront:self];
+}
 -(void)windowDidResignKey:(NSNotification *)notification{
     [self hideWindow];
 }
