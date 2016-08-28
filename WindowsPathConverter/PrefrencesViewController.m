@@ -11,7 +11,7 @@
 
 @interface PrefrencesViewController ()
 
-@property (nonatomic, strong) WindowsPathConverterSettings* settings;
+@property (nonatomic, strong) NSArray* settingsArray;
 
 @end
 
@@ -21,7 +21,6 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.settings = [WindowsPathConverterSettings alloc] initWithJSONFilePath:<#(NSURL *)#>
 }
 
 -(void)viewWillAppear{
@@ -32,21 +31,36 @@
 }
 
 - (IBAction)subtractButtonPressed:(NSButton *)sender {
+    if (self.tableView.selectedRow < 0) return;
+    NSTableCellView* cell = [[self.tableView rowViewAtRow:self.tableView.selectedRow makeIfNecessary:NO] viewAtColumn:0];
+    
+    [WindowsPathConverterSettings.sharedSettings removeWindowsDriveWithKey: cell.textField.stringValue];
 }
 
-
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-    return 6;
+    self.settingsArray = [self settingsAsArray];
+    return self.settingsArray.count;
 }
 
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     NSTableCellView* cellView = [tableView makeViewWithIdentifier:@"TableViewCellIdenitifier" owner:self];
-    cellView.textField.stringValue = @"test";
+    NSUInteger i = [[tableView tableColumns] indexOfObject:tableColumn];
+    cellView.textField.stringValue = self.settingsArray[row][i];
     return cellView;
 }
-//-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-//    
-//}
+
+-(NSArray*) settingsAsArray
+{
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    NSDictionary* settings = WindowsPathConverterSettings.sharedSettings.settingsDictionary[@"windows_drives"];
+    for (NSString* key in settings) {
+        NSMutableArray* element = [[NSMutableArray alloc] init];
+        [element addObject:key];
+        [element addObject:settings[key]];
+        [array addObject:element];
+    }
+    return [array copy];
+}
 
 @end

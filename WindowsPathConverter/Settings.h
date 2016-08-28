@@ -13,6 +13,7 @@
 @property (readonly) NSDictionary* settingsDictionary;
 
 - (instancetype)initWithJSONFilePath:(NSURL*)url;
+- (void) updateSettingsWithObject:(id) object forKey:(NSString*) key;
 - (BOOL) saveToURL:(NSURL*) url;
 - (BOOL) save;
 

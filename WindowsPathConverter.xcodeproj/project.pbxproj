@@ -80,13 +80,10 @@
 				85B41FB01CFF39E700E5C28D /* PathConverter.m */,
 				8541F52D1CFF6C2A00DD1C22 /* FileReadWriter.h */,
 				8541F52E1CFF6C2A00DD1C22 /* FileReadWriter.m */,
-				85B767B41D1328BB009E09AA /* CustomStatusItem.h */,
-				85B767B51D1328BB009E09AA /* CustomStatusItem.m */,
-				85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */,
-				85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */,
-				85A9148C1D73208E003F9EE9 /* Settings */,
 				853398EE1D20440700759D9A /* JSONParser.h */,
 				853398EF1D20440700759D9A /* JSONParser.m */,
+				85A914901D735D81003F9EE9 /* Interface */,
+				85A9148C1D73208E003F9EE9 /* Settings */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -119,9 +116,9 @@
 				8579F7941CCE4670007FC32B /* Assets.xcassets */,
 				8579F7961CCE4671007FC32B /* MainMenu.xib */,
 				8579F7991CCE4671007FC32B /* Info.plist */,
+				853398F11D204FA000759D9A /* Classes */,
 				8579F7911CCE4670007FC32B /* Supporting Files */,
 				85DFB0331CCF9C0800C3942A /* settings.json */,
-				853398F11D204FA000759D9A /* Classes */,
 			);
 			path = WindowsPathConverter;
 			sourceTree = "<group>";
@@ -143,6 +140,17 @@
 				853398F31D20505300759D9A /* WindowsPathConverterSettings.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		85A914901D735D81003F9EE9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				85B767B41D1328BB009E09AA /* CustomStatusItem.h */,
+				85B767B51D1328BB009E09AA /* CustomStatusItem.m */,
+				85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */,
+				85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		C0F6883204F85076D712F952 /* Pods */ = {

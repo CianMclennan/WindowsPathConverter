@@ -28,6 +28,19 @@
     return self;
 }
 
+- (void) updateSettingsWithObject:(id) object forKey:(NSString*) key
+{
+    NSMutableDictionary* newSettings = [self.settingsDictionary mutableCopy];
+    newSettings[key] = object;
+    self.settingsDictionary = [newSettings copy];
+}
+//- (void) removeObjectForKey:(NSString*) key
+//{
+//    NSMutableDictionary* newSettings = [self.settingsDictionary mutableCopy];
+//    [newSettings removeObjectForKey:key];
+//    self.settingsDictionary = [newSettings copy];
+//}
+
 -(BOOL) saveToURL:(NSURL*) url
 {
     @try {

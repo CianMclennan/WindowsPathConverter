@@ -13,5 +13,6 @@
 @property(readonly) NSDictionary* windowsDrives;
 
 + (WindowsPathConverterSettings*)sharedSettings;
+- (void)removeWindowsDriveWithKey:(NSString*) key;
 
 @end

@@ -22,6 +22,14 @@
     return self.settingsDictionary[WINDOWS_DRIVES];
 }
 
+-(void) removeWindowsDriveWithKey:(NSString*) key
+{
+    NSMutableDictionary* windowsDrives = [self.windowsDrives mutableCopy];
+    [windowsDrives removeObjectForKey:key];
+    [self updateSettingsWithObject:windowsDrives forKey:WINDOWS_DRIVES];
+    [self save];
+}
+
 + (id)sharedSettings {
     static WindowsPathConverterSettings *sharedMyManager = nil;
     static dispatch_once_t onceToken;
