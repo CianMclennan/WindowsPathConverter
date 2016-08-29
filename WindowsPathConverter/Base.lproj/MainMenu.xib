@@ -747,10 +747,10 @@
         </window>
         <viewController id="rod-fd-eiu" customClass="AddDriveViewController">
             <connections>
-                <outlet property="macPath" destination="vXh-ch-VSk" id="Kbg-pn-lXO"/>
+                <outlet property="macPath" destination="f3A-qU-LiD" id="mMR-g5-bql"/>
                 <outlet property="view" destination="cTy-Yo-glB" id="KE2-HD-fPP"/>
                 <outlet property="window" destination="2vO-xQ-GHT" id="9As-Li-y6Z"/>
-                <outlet property="windowsPath" destination="f3A-qU-LiD" id="e4m-Ln-wYb"/>
+                <outlet property="windowsPath" destination="vXh-ch-VSk" id="Hf3-UP-cVP"/>
             </connections>
         </viewController>
         <userDefaultsController representsSharedInstance="YES" id="zxp-sA-xUd"/>
@@ -785,7 +785,7 @@
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="160" minWidth="40" maxWidth="1000" id="TNu-gk-Qkr">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Windows Drive">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Mac Volume">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -822,7 +822,7 @@
                                             </prototypeCellViews>
                                         </tableColumn>
                                         <tableColumn width="205" minWidth="40" maxWidth="1000" id="u9c-8u-kpN">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Mac Volume">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Windows Drive">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -914,7 +914,7 @@
             <point key="canvasLocation" x="-242.5" y="387.5"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2vO-xQ-GHT">
-            <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="213" width="480" height="112"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
@@ -923,7 +923,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vXh-ch-VSk">
-                        <rect key="frame" x="120" y="39" width="340" height="22"/>
+                        <rect key="frame" x="124" y="39" width="336" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="tZW-KC-raL">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -931,16 +931,16 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-rz-Q5c">
-                        <rect key="frame" x="18" y="75" width="94" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Windows Path:" id="m3y-8z-vIR">
+                        <rect key="frame" x="18" y="75" width="82" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Volume:" id="m3y-8z-vIR">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-c8-wyP">
-                        <rect key="frame" x="18" y="42" width="61" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Path" id="z8Y-QW-Ipl">
+                        <rect key="frame" x="18" y="42" width="98" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Windows Drive:" id="z8Y-QW-Ipl">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -973,7 +973,7 @@ Gw
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f3A-qU-LiD">
-                        <rect key="frame" x="120" y="73" width="340" height="22"/>
+                        <rect key="frame" x="124" y="73" width="336" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Rg7-J5-xKu">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -986,13 +986,13 @@ Gw
                     <constraint firstItem="MGo-ZV-U1b" firstAttribute="centerY" secondItem="kTK-N8-oJi" secondAttribute="centerY" id="F8J-Ib-JbH"/>
                     <constraint firstItem="oIF-rz-Q5c" firstAttribute="leading" secondItem="cTy-Yo-glB" secondAttribute="leading" constant="20" id="IKt-Sq-qLL"/>
                     <constraint firstItem="kTK-N8-oJi" firstAttribute="trailing" secondItem="vXh-ch-VSk" secondAttribute="trailing" id="NUb-SJ-JZz"/>
-                    <constraint firstItem="f3A-qU-LiD" firstAttribute="leading" secondItem="oIF-rz-Q5c" secondAttribute="trailing" constant="10" id="OP1-XG-hcu"/>
                     <constraint firstItem="kTK-N8-oJi" firstAttribute="leading" secondItem="MGo-ZV-U1b" secondAttribute="trailing" constant="12" id="QIi-bi-Oc7"/>
                     <constraint firstAttribute="trailing" secondItem="f3A-qU-LiD" secondAttribute="trailing" constant="20" symbolic="YES" id="XDs-Q4-hah"/>
                     <constraint firstItem="f3A-qU-LiD" firstAttribute="centerY" secondItem="oIF-rz-Q5c" secondAttribute="centerY" id="c6E-Qe-9gS"/>
                     <constraint firstItem="ogJ-c8-wyP" firstAttribute="top" secondItem="f3A-qU-LiD" secondAttribute="bottom" constant="14" id="eUz-DY-zNi"/>
                     <constraint firstItem="vXh-ch-VSk" firstAttribute="leading" secondItem="f3A-qU-LiD" secondAttribute="leading" id="ee9-cR-TaF"/>
                     <constraint firstItem="kTK-N8-oJi" firstAttribute="top" secondItem="vXh-ch-VSk" secondAttribute="bottom" constant="8" symbolic="YES" id="fTs-4a-Spv"/>
+                    <constraint firstItem="vXh-ch-VSk" firstAttribute="leading" secondItem="ogJ-c8-wyP" secondAttribute="trailing" constant="10" id="j5d-4l-WbJ"/>
                     <constraint firstItem="vXh-ch-VSk" firstAttribute="trailing" secondItem="f3A-qU-LiD" secondAttribute="trailing" id="mA8-CP-D0f"/>
                     <constraint firstItem="vXh-ch-VSk" firstAttribute="centerY" secondItem="ogJ-c8-wyP" secondAttribute="centerY" id="oGC-o3-24K"/>
                     <constraint firstAttribute="bottom" secondItem="kTK-N8-oJi" secondAttribute="bottom" constant="10" id="ri6-2q-7zX"/>
@@ -1002,7 +1002,7 @@ Gw
             <connections>
                 <outlet property="delegate" destination="rod-fd-eiu" id="nHU-U3-3Mv"/>
             </connections>
-            <point key="canvasLocation" x="-243" y="648"/>
+            <point key="canvasLocation" x="-243" y="651"/>
         </window>
     </objects>
     <resources>

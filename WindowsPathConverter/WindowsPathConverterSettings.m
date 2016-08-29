@@ -26,8 +26,12 @@
 {
     NSMutableDictionary* volumes = [self.volumes mutableCopy];
     NSMutableOrderedSet* windowsDrives = [volumes[volume] mutableCopy];
-    [windowsDrives addObject:windowsDrive];
-    volumes[volume] = windowsDrives;
+    if(windowsDrives){
+        [windowsDrives addObject:windowsDrive];
+        volumes[volume] = windowsDrives;
+    } else {
+        volumes[volume] = @[windowsDrive];
+    }
     [self updateSettingsWithObject:volumes forKey:VOLUMES];
     [self save];
 }
@@ -50,7 +54,12 @@
             break;
         }
     }
-    volumes[volume] = windowsDrives;
+    if (windowsDrives.count){
+        volumes[volume] = windowsDrives;
+    } else {
+        [volumes removeObjectForKey:volume];
+    }    
+    
     [self updateSettingsWithObject:volumes forKey:VOLUMES];
     [self save];
 }

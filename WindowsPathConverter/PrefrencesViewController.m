@@ -39,8 +39,8 @@
     
     if(selectedRow){
         NSString* macVolume = ((NSTableCellView*)[selectedRow viewAtColumn:0]).textField.stringValue;
-//        NSArray* windowsDrives = [((NSTableCellView*)[selectedRow viewAtColumn:1]).textField.stringValue componentsSeparatedByString:@","];
-        [WindowsPathConverterSettings.sharedSettings removeMacVolume:macVolume];
+        NSString* windowsDrive = ((NSTableCellView*)[selectedRow viewAtColumn:1]).textField.stringValue;
+        [WindowsPathConverterSettings.sharedSettings removeWindowsDrive:windowsDrive fromMacVolume:macVolume];
         [self.tableView reloadData];
     }
 }
@@ -54,6 +54,7 @@
 {
     NSTableCellView* cellView = [tableView makeViewWithIdentifier:@"TableViewCellIdenitifier" owner:self];
     NSUInteger i = [[tableView tableColumns] indexOfObject:tableColumn];
+    
     cellView.textField.stringValue = self.settingsArray[row][i];
     return cellView;
 }
@@ -61,12 +62,11 @@
 -(NSArray*) settingsAsArray
 {
     NSMutableArray* array = [[NSMutableArray alloc] init];
-    NSDictionary* settings = WindowsPathConverterSettings.sharedSettings.settingsDictionary[@"windows_drives"];
-    for (NSString* key in settings) {
-        NSMutableArray* element = [[NSMutableArray alloc] init];
-        [element addObject:key];
-        [element addObject:settings[key]];
-        [array addObject:element];
+    NSDictionary* settings = WindowsPathConverterSettings.sharedSettings.settingsDictionary[@"volumes"];
+    for (NSString* volume in settings) {
+        for (NSString* drive in settings[volume]) {
+            [array addObject:@[volume, drive]];
+        }
     }
     return [array copy];
 }
