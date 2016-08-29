@@ -8,31 +8,38 @@
 
 #import "PathConverter.h"
 
-@implementation PathConverter{
-    NSDictionary* _conversionStrings;
-}
+@interface PathConverter ()
+
+@property (nonatomic, strong) NSDictionary* conversionStrings;
+
+@end
+
+@implementation PathConverter
 
 -(instancetype)initWithConversionStrings:(NSDictionary*) conversionStrings
 {
     if(self=[super init]) {
-        _conversionStrings = conversionStrings;
+        self.conversionStrings = conversionStrings;
     }
     return self;
 }
 
 -(NSString*) windowsToUnix:(NSString*) windowsString
 {
-    for (NSString* key in _conversionStrings) {
-        NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", [_conversionStrings objectForKey:key]];
-        NSRange rangeOfWindowsDrive = [[windowsString lowercaseString] rangeOfString:[key lowercaseString]];
-        NSUInteger lengthOfString = rangeOfWindowsDrive.location+rangeOfWindowsDrive.length;
-        
-        if (rangeOfWindowsDrive.location != NSNotFound) {
-            NSString* unixString = [NSString stringWithFormat:@"%@%@", macVolume, [windowsString substringWithRange: NSMakeRange(lengthOfString, windowsString.length-lengthOfString)]];
-            
-            unixString = [unixString stringByReplacingOccurrencesOfString:@"\\"
-                                                               withString: @"/"];
-            return unixString;
+    for (NSString* volume in self.conversionStrings)
+    {
+        NSArray* drives = self.conversionStrings[volume];
+        for (NSString* drive in drives)
+        {
+            if([[windowsString lowercaseString] rangeOfString:[drive lowercaseString]].location != NSNotFound){
+                NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", volume];
+                NSRange rangeOfWindowsDrive = [[windowsString lowercaseString] rangeOfString:[drive lowercaseString]];
+                NSUInteger lengthOfString = rangeOfWindowsDrive.location+rangeOfWindowsDrive.length;
+                NSString* unixString = [NSString stringWithFormat:@"%@%@", macVolume, [windowsString substringWithRange: NSMakeRange(lengthOfString, windowsString.length-lengthOfString)]];
+                unixString = [unixString stringByReplacingOccurrencesOfString:@"\\"
+                                                                   withString: @"/"];
+                return unixString;
+            }
         }
     }
     return windowsString;
@@ -40,11 +47,21 @@
 
 -(NSString*) unixToWindows:(NSString*) unixString
 {
-    for (NSString* key in _conversionStrings) {
-        NSString* windowsDrive = key;
-        NSString* macVolume = [NSString stringWithFormat:@"/Volumes/%@", [_conversionStrings objectForKey:key]];
-        
-        if ([unixString rangeOfString:macVolume].location != NSNotFound) {
+    NSString* macVolume = @"";
+    @try {
+        NSArray* pathElements = [unixString componentsSeparatedByString:@"/"];
+        if (![pathElements[1] isEqualToString:@"Volumes"])
+            return unixString;
+        macVolume = [pathElements objectAtIndex:2];
+    } @catch (NSException *exception) {
+        return unixString;
+    }
+    NSArray* drives = self.conversionStrings[macVolume];
+    if(drives)
+    {
+        NSString* windowsDrive = [self.conversionStrings[macVolume] firstObject];
+        if(windowsDrive) {
+            macVolume = [NSString stringWithFormat:@"/Volumes/%@", macVolume];
             NSString* windowsString = [unixString stringByReplacingOccurrencesOfString:macVolume
                                                                             withString:windowsDrive];
             windowsString = [windowsString stringByReplacingOccurrencesOfString:@"/" withString:@"\\"];
@@ -57,10 +74,18 @@
 -(BOOL) stringIsWindowsPath:(NSString*) path
 {
     path = [path lowercaseString];
-    for (NSString* key in _conversionStrings) {
-        if([path rangeOfString:[key lowercaseString]].location != NSNotFound)
-            return YES;
+    for (NSString* volume in self.conversionStrings) {
+        NSArray* drives = self.conversionStrings[volume];
+        for (NSString* drive in drives) {
+            if([path rangeOfString:[drive lowercaseString]].location != NSNotFound)
+                return YES;
+        }
     }
     return NO;
+}
+
+-(BOOL) stringIsMacPath:(NSString*) path{
+    NSString* macVolume = [[path componentsSeparatedByString:@"/"] objectAtIndex:1];
+    return self.conversionStrings[macVolume] ? YES : NO;
 }
 @end

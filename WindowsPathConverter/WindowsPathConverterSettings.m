@@ -6,7 +6,7 @@
 //  Copyright © 2016 Cian McLennan. All rights reserved.
 //
 
-#define WINDOWS_DRIVES @"windows_drives"
+#define VOLUMES @"volumes"
 #define DOCUMENTS_DIRECTORY [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"WindowsPathConverter"]
 
 #import "WindowsPathConverterSettings.h"
@@ -18,22 +18,40 @@
 
 @implementation WindowsPathConverterSettings
 
--(NSDictionary *)windowsDrives{
-    return self.settingsDictionary[WINDOWS_DRIVES];
+-(NSDictionary *)volumes{
+    return self.settingsDictionary[VOLUMES];
 }
 
--(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) macVolume
+-(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) volume
 {
-    NSMutableDictionary* windowsDrives = [self.windowsDrives mutableCopy];
-    windowsDrives[windowsDrive] = macVolume;
-    [self updateSettingsWithObject:windowsDrives forKey:WINDOWS_DRIVES];
+    NSMutableDictionary* volumes = [self.volumes mutableCopy];
+    NSMutableOrderedSet* windowsDrives = [volumes[volume] mutableCopy];
+    [windowsDrives addObject:windowsDrive];
+    volumes[volume] = windowsDrives;
+    [self updateSettingsWithObject:volumes forKey:VOLUMES];
     [self save];
 }
--(void) removeWindowsDriveWithKey:(NSString*) key
+
+-(void) removeMacVolume:(NSString*) volume
 {
-    NSMutableDictionary* windowsDrives = [self.windowsDrives mutableCopy];
-    [windowsDrives removeObjectForKey:key];
-    [self updateSettingsWithObject:windowsDrives forKey:WINDOWS_DRIVES];
+    NSMutableDictionary* volumes = [self.volumes mutableCopy];
+    [volumes removeObjectForKey:volume];
+    [self updateSettingsWithObject:volumes forKey:VOLUMES];
+    [self save];
+}
+
+-(void) removeWindowsDrive:(NSString*)windowsDrive fromMacVolume:(NSString*) volume
+{
+    NSMutableDictionary* volumes = [self.volumes mutableCopy];
+    NSMutableOrderedSet* windowsDrives = [volumes[volume] mutableCopy];
+    for (NSString* drive in windowsDrives) {
+        if ([[drive lowercaseString] isEqualToString:[windowsDrive lowercaseString]]){
+            [windowsDrives removeObject:drive];
+            break;
+        }
+    }
+    volumes[volume] = windowsDrives;
+    [self updateSettingsWithObject:volumes forKey:VOLUMES];
     [self save];
 }
 

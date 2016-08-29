@@ -35,9 +35,14 @@
 
 - (IBAction)subtractButtonPressed:(NSButton *)sender {
     if (self.tableView.selectedRow < 0) return;
-    NSTableCellView* cell = [[self.tableView rowViewAtRow:self.tableView.selectedRow makeIfNecessary:NO] viewAtColumn:0];
-    [WindowsPathConverterSettings.sharedSettings removeWindowsDriveWithKey: cell.textField.stringValue];
-    [self.tableView reloadData];
+    NSTableRowView* selectedRow = [self.tableView rowViewAtRow:self.tableView.selectedRow makeIfNecessary:NO];
+    
+    if(selectedRow){
+        NSString* macVolume = ((NSTableCellView*)[selectedRow viewAtColumn:0]).textField.stringValue;
+//        NSArray* windowsDrives = [((NSTableCellView*)[selectedRow viewAtColumn:1]).textField.stringValue componentsSeparatedByString:@","];
+        [WindowsPathConverterSettings.sharedSettings removeMacVolume:macVolume];
+        [self.tableView reloadData];
+    }
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{

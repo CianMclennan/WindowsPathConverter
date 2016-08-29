@@ -34,7 +34,7 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.input.delegate = self;
     
-    self.pathConverter = [[PathConverter alloc] initWithConversionStrings:WindowsPathConverterSettings.sharedSettings.windowsDrives];
+    self.pathConverter = [[PathConverter alloc] initWithConversionStrings:WindowsPathConverterSettings.sharedSettings.volumes];
     
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.delegate = self;

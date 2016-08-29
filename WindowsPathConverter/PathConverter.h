@@ -13,6 +13,8 @@
 -(instancetype)initWithConversionStrings:(NSDictionary*) conversionStrings;
 -(NSString*) windowsToUnix:(NSString*) windowsString;
 -(NSString*) unixToWindows:(NSString*) unixString;
+
 -(BOOL) stringIsWindowsPath:(NSString*) path;
+-(BOOL) stringIsMacPath:(NSString*) path;
 
 @end

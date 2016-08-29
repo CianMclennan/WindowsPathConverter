@@ -10,10 +10,11 @@
 
 @interface WindowsPathConverterSettings : Settings
 
-@property(readonly) NSDictionary* windowsDrives;
+@property(readonly) NSDictionary* volumes;
 
 + (WindowsPathConverterSettings*)sharedSettings;
-- (void)removeWindowsDriveWithKey:(NSString*) key;
--(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) macVolume;
+-(void) removeMacVolume:(NSString*) volume;
+-(void) removeWindowsDrive:(NSString*)windowsDrive fromMacVolume:(NSString*) volume;
+-(void) assignWindowsDrive:(NSString*) windowsDrive toMacVolume:(NSString*) volume;
 
 @end
