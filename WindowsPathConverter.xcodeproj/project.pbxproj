@@ -16,6 +16,9 @@
 		8579F7931CCE4670007FC32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8579F7921CCE4670007FC32B /* main.m */; };
 		8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7941CCE4670007FC32B /* Assets.xcassets */; };
 		8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8579F7961CCE4671007FC32B /* MainMenu.xib */; };
+		858607741D7611A600818F5B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858607731D7611A600818F5B /* Sparkle.framework */; };
+		858607761D76120B00818F5B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 858607731D7611A600818F5B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		858607781D7615E300818F5B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 858607771D7615E300818F5B /* dsa_pub.pem */; };
 		85A9148F1D732346003F9EE9 /* PrefrencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */; };
 		85A914941D7368A0003F9EE9 /* AddDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A914921D7368A0003F9EE9 /* AddDriveViewController.m */; };
 		85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B41FB01CFF39E700E5C28D /* PathConverter.m */; };
@@ -23,6 +26,19 @@
 		85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */; };
 		85DFB0341CCF9C0800C3942A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 85DFB0331CCF9C0800C3942A /* settings.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		858607751D7611F600818F5B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				858607761D76120B00818F5B /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		673BB40F72D2CBE0A53633E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -42,6 +58,8 @@
 		8579F7941CCE4670007FC32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8579F7971CCE4671007FC32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8579F7991CCE4671007FC32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858607731D7611A600818F5B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = WindowsPathConverter/Sparkle.framework; sourceTree = "<group>"; };
+		858607771D7615E300818F5B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefrencesViewController.h; sourceTree = "<group>"; };
 		85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefrencesViewController.m; sourceTree = "<group>"; };
 		85A914911D7368A0003F9EE9 /* AddDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDriveViewController.h; sourceTree = "<group>"; };
@@ -62,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE41DEE02A37FFCC396E034 /* libPods.a in Frameworks */,
+				858607741D7611A600818F5B /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +90,7 @@
 		5FC460C687F3D09DA048AE6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				858607731D7611A600818F5B /* Sparkle.framework */,
 				ABAD0C5C711D7FD75FC82C40 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -131,6 +151,7 @@
 		8579F7911CCE4670007FC32B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				858607771D7615E300818F5B /* dsa_pub.pem */,
 				8579F7921CCE4670007FC32B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -180,6 +201,7 @@
 				8579F7891CCE4670007FC32B /* Resources */,
 				6FF7322B03AE29E29D50470C /* Embed Pods Frameworks */,
 				F9628EB2B5DD7F87DFBD85E4 /* Copy Pods Resources */,
+				858607751D7611F600818F5B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -228,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85DFB0341CCF9C0800C3942A /* settings.json in Resources */,
+				858607781D7615E300818F5B /* dsa_pub.pem in Resources */,
 				8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */,
 				8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */,
 			);
@@ -403,8 +426,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WindowsPathConverter",
+				);
 				INFOPLIST_FILE = WindowsPathConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciankm.WindowsPathConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,8 +444,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WindowsPathConverter",
+				);
 				INFOPLIST_FILE = WindowsPathConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciankm.WindowsPathConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

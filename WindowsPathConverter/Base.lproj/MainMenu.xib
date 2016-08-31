@@ -18,10 +18,12 @@
                 <outlet property="output" destination="5Mg-pf-nRL" id="v5x-Qg-TLO"/>
                 <outlet property="prefrencesWindow" destination="5Gm-vn-EO9" id="tO0-Wz-T7m"/>
                 <outlet property="shortCutView" destination="HlD-wg-4Hy" id="9OM-al-2dx"/>
+                <outlet property="updater" destination="5eB-Sy-loI" id="SaR-QW-7Hu"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="5eB-Sy-loI" customClass="SUUpdater"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="WindowsPathConverter" id="1Xt-HY-uBw">
@@ -671,6 +673,31 @@
                 </menuItem>
             </items>
         </menu>
+        <viewController id="7G5-Rm-XEt" customClass="MainWindowViewController">
+            <connections>
+                <outlet property="input" destination="aGz-Er-l8y" id="ig3-2b-por"/>
+                <outlet property="output" destination="5Mg-pf-nRL" id="vW7-pp-v5Y"/>
+                <outlet property="view" destination="EiT-Mj-1SZ" id="LJr-yA-tIn"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="seU-lw-HA2"/>
+            </connections>
+        </viewController>
+        <viewController id="rod-fd-eiu" customClass="AddDriveViewController">
+            <connections>
+                <outlet property="macPath" destination="f3A-qU-LiD" id="mMR-g5-bql"/>
+                <outlet property="view" destination="cTy-Yo-glB" id="KE2-HD-fPP"/>
+                <outlet property="window" destination="2vO-xQ-GHT" id="9As-Li-y6Z"/>
+                <outlet property="windowsPath" destination="vXh-ch-VSk" id="Hf3-UP-cVP"/>
+            </connections>
+        </viewController>
+        <userDefaultsController representsSharedInstance="YES" id="zxp-sA-xUd"/>
+        <viewController id="FxI-AQ-eCb" customClass="PrefrencesViewController">
+            <connections>
+                <outlet property="modalWindow" destination="2vO-xQ-GHT" id="yfG-gx-6Mw"/>
+                <outlet property="tableView" destination="jBu-jq-s3m" id="WJe-uc-jzt"/>
+                <outlet property="view" destination="Eps-B0-dJA" id="wv4-KI-5dS"/>
+                <outlet property="window" destination="5Gm-vn-EO9" id="OLr-Aq-2jK"/>
+            </connections>
+        </viewController>
         <window title="WindowsPathConverter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="FloatingWindow">
             <windowStyleMask key="styleMask" closable="YES" resizable="YES"/>
             <rect key="contentRect" x="783" y="612" width="480" height="116"/>
@@ -705,7 +732,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="copyButtonPressed:" target="Voe-Tx-rLC" id="0oj-Bz-soK"/>
+                            <action selector="copyButtonPressed:" target="7G5-Rm-XEt" id="EW5-1l-8Sy"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UXC-ay-FIm">
@@ -718,7 +745,7 @@ DQ
 </string>
                         </buttonCell>
                         <connections>
-                            <action selector="openButtonPressed:" target="Voe-Tx-rLC" id="sob-Vl-gea"/>
+                            <action selector="openButtonPressed:" target="7G5-Rm-XEt" id="IZ4-pM-Jur"/>
                         </connections>
                     </button>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="HlD-wg-4Hy" customClass="MASShortcutView">
@@ -748,30 +775,13 @@ DQ
             </view>
             <point key="canvasLocation" x="353" y="347"/>
         </window>
-        <viewController id="rod-fd-eiu" customClass="AddDriveViewController">
-            <connections>
-                <outlet property="macPath" destination="f3A-qU-LiD" id="mMR-g5-bql"/>
-                <outlet property="view" destination="cTy-Yo-glB" id="KE2-HD-fPP"/>
-                <outlet property="window" destination="2vO-xQ-GHT" id="9As-Li-y6Z"/>
-                <outlet property="windowsPath" destination="vXh-ch-VSk" id="Hf3-UP-cVP"/>
-            </connections>
-        </viewController>
-        <userDefaultsController representsSharedInstance="YES" id="zxp-sA-xUd"/>
-        <viewController id="FxI-AQ-eCb" customClass="PrefrencesViewController">
-            <connections>
-                <outlet property="modalWindow" destination="2vO-xQ-GHT" id="yfG-gx-6Mw"/>
-                <outlet property="tableView" destination="jBu-jq-s3m" id="WJe-uc-jzt"/>
-                <outlet property="view" destination="Eps-B0-dJA" id="wv4-KI-5dS"/>
-                <outlet property="window" destination="5Gm-vn-EO9" id="OLr-Aq-2jK"/>
-            </connections>
-        </viewController>
         <window title="Prefrences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="5Gm-vn-EO9">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="782" y="426" width="349" height="173"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="Eps-B0-dJA">
                 <rect key="frame" x="0.0" y="0.0" width="349" height="173"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-33-aYj">
                         <rect key="frame" x="10" y="39" width="329" height="124"/>
@@ -804,8 +814,8 @@ DQ
                                                     <rect key="frame" x="1" y="1" width="160" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dm6-WF-FqB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="dm6-WF-FqB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Table View Cell" id="Bkz-OD-qgJ">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
