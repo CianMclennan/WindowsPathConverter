@@ -7,15 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Sparkle/Sparkle.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSMenuDelegate, NSWindowDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSMenuDelegate>
 
-@property (weak) IBOutlet NSTextField *output;
-@property (weak) IBOutlet NSTextField *input;
 @property (weak) IBOutlet NSWindow *prefrencesWindow;
-
-- (IBAction)copyButtonPressed:(id)sender;
-- (IBAction)openButtonPressed:(id)sender;
+@property (weak) IBOutlet SUUpdater *updater;
+@property (readonly) NSStatusItem* statusBarButton;
 
 @end
 

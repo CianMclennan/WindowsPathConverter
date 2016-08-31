@@ -8,6 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MainWindowViewController : NSViewController
+@interface MainWindowViewController : NSViewController <NSWindowDelegate>
+@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTextField *output;
+@property (weak) IBOutlet NSTextField *input;
+
+- (IBAction)copyButtonPressed:(id)sender;
+- (IBAction)openButtonPressed:(id)sender;
 
 @end

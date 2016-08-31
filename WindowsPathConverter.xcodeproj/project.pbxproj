@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BE41DEE02A37FFCC396E034 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAD0C5C711D7FD75FC82C40 /* libPods.a */; };
+		851AE9EE1D775D4400BE894B /* MainWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851AE9EC1D775D4400BE894B /* MainWindowViewController.m */; };
 		853398ED1D20424300759D9A /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 853398EC1D20424300759D9A /* Settings.m */; };
 		853398F01D20440700759D9A /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 853398EF1D20440700759D9A /* JSONParser.m */; };
 		853398F41D20505300759D9A /* WindowsPathConverterSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 853398F31D20505300759D9A /* WindowsPathConverterSettings.m */; };
@@ -43,6 +44,9 @@
 /* Begin PBXFileReference section */
 		673BB40F72D2CBE0A53633E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		829E29B06AAFC6F68665679D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		851AE9EB1D775D4400BE894B /* MainWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowViewController.h; sourceTree = "<group>"; };
+		851AE9EC1D775D4400BE894B /* MainWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowViewController.m; sourceTree = "<group>"; };
+		851AE9F01D77707D00BE894B /* StatusItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemDelegate.h; sourceTree = "<group>"; };
 		853398EB1D20424300759D9A /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		853398EC1D20424300759D9A /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		853398EE1D20440700759D9A /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
@@ -138,12 +142,11 @@
 				85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */,
 				85A914911D7368A0003F9EE9 /* AddDriveViewController.h */,
 				85A914921D7368A0003F9EE9 /* AddDriveViewController.m */,
-				8579F7941CCE4670007FC32B /* Assets.xcassets */,
-				8579F7961CCE4671007FC32B /* MainMenu.xib */,
-				8579F7991CCE4671007FC32B /* Info.plist */,
+				851AE9EB1D775D4400BE894B /* MainWindowViewController.h */,
+				851AE9EC1D775D4400BE894B /* MainWindowViewController.m */,
+				851AE9F01D77707D00BE894B /* StatusItemDelegate.h */,
 				853398F11D204FA000759D9A /* Classes */,
 				8579F7911CCE4670007FC32B /* Supporting Files */,
-				85DFB0331CCF9C0800C3942A /* settings.json */,
 			);
 			path = WindowsPathConverter;
 			sourceTree = "<group>";
@@ -151,6 +154,10 @@
 		8579F7911CCE4670007FC32B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8579F7961CCE4671007FC32B /* MainMenu.xib */,
+				85DFB0331CCF9C0800C3942A /* settings.json */,
+				8579F7941CCE4670007FC32B /* Assets.xcassets */,
+				8579F7991CCE4671007FC32B /* Info.plist */,
 				858607771D7615E300818F5B /* dsa_pub.pem */,
 				8579F7921CCE4670007FC32B /* main.m */,
 			);
@@ -320,6 +327,7 @@
 				853398F41D20505300759D9A /* WindowsPathConverterSettings.m in Sources */,
 				8579F7901CCE4670007FC32B /* AppDelegate.m in Sources */,
 				85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */,
+				851AE9EE1D775D4400BE894B /* MainWindowViewController.m in Sources */,
 				853398F01D20440700759D9A /* JSONParser.m in Sources */,
 				853398ED1D20424300759D9A /* Settings.m in Sources */,
 			);
