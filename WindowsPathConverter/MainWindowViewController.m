@@ -11,6 +11,9 @@
 #import "WindowsPathConverterSettings.h"
 #import <MASShortcut/Shortcut.h>
 
+#define STATUS_ITEM_CLICKED @"statusItemClicked"
+#define STATUS_ITEM_SECONDARY_CLICKED @"statusItemSecondaryClicked"
+
 static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 
 @interface MainWindowViewController ()
@@ -64,6 +67,16 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 
 
 #pragma mark - Window toggle functions
+
+-(void) addListeners
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:STATUS_ITEM_CLICKED
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      [self toggleWindow];
+                                                  }];
+}
 
 -(void) toggleWindow{
     self.window.alphaValue ? [self hideWindow] : [self displayWindow];
@@ -125,5 +138,7 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
                                                                    inDomains:NSUserDomainMask] lastObject];
     return [appSupportURL URLByAppendingPathComponent:@"WindowsPathConverter"];
 }
+
+#pragma mark - WindowDelegate
 
 @end

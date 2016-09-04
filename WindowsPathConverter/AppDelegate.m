@@ -12,9 +12,15 @@
 #import "CustomStatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
+#import "StatusItemDelegate.h"
+
+#define STATUS_ITEM_CLICKED @"statusItemClicked"
+#define STATUS_ITEM_SECONDARY_CLICKED @"statusItemSecondaryClicked"
 
 
 @interface AppDelegate ()
+
+@property (weak) id<StatusItemDelegate> delegate;
 
 @end
 
@@ -29,7 +35,7 @@
 }
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
 {
-    [self displayWindow];
+//    [self displayWindow];
     return YES;
 }
 
@@ -48,7 +54,7 @@
     _statusBarButton.view = statusView;
     return _statusBarButton;
 }
--(NSMenu*) createStatusMenu{
+-(NSMenu*) statusMenu{
     if (_statusMenu) return _statusMenu;
     _statusMenu = [[NSMenu alloc] init];
     [_statusMenu addItemWithTitle:@"Open" action:@selector(statusItemClicked:) keyEquivalent:@""];
@@ -64,25 +70,29 @@
     [self.updater checkForUpdates:sender];
 }
 -(void) openPrefrences: (id) sender {
-    [self.prefrencesWindow makeKeyAndOrderFront:self];
+//    [self.prefrencesWindow makeKeyAndOrderFront:self];
 }
--(void)windowDidResignKey:(NSNotification *)notification{
-    [self hideWindow];
+-(void)windowDidResignKey:(NSNotification *)notification
+{
+
 }
 -(void)windowDidResignMain:(NSNotification *)notification{
-    [self hideWindow];
+//    [self hideWindow];
 }
 
 -(void)statusItemClicked: (id) sender{
-    [self toggleWindow];
-    [(CustomStatusItem*)self.statusItem.view setHighlightState:NO];
+    [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
+                                                        object:nil];
+    [(CustomStatusItem*)self.statusBarButton.view setHighlightState:NO];
 }
 
 -(void)statusItemSecondaryClicked: (id) sender{
-    [self.statusItem popUpStatusItemMenu:self.statusMenu];
+    [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
+                                                        object:nil];
+    [self.statusBarButton popUpStatusItemMenu:self.statusMenu];
 }
 - (void)menuDidClose:(NSMenu *)menu{
-    [(CustomStatusItem*)self.statusItem.view setHighlightState:NO];
+    [(CustomStatusItem*)self.statusBarButton.view setHighlightState:NO];
 }
 
 @end
