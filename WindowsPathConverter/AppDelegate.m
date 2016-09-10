@@ -12,15 +12,12 @@
 #import "CustomStatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
-#import "StatusItemDelegate.h"
 
 #define STATUS_ITEM_CLICKED @"statusItemClicked"
 #define STATUS_ITEM_SECONDARY_CLICKED @"statusItemSecondaryClicked"
 
 
 @interface AppDelegate ()
-
-@property (weak) id<StatusItemDelegate> delegate;
 
 @end
 
@@ -31,11 +28,10 @@
 
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+    // Add status bar butotn to the status bar.
+    [self statusBarButton];
 }
--(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
-{
-//    [self displayWindow];
+-(BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
     return YES;
 }
 
@@ -65,19 +61,14 @@
     return _statusMenu;
 }
 
+#pragma mark - selector methods
+
 -(void) updateApplication: (id) sender
 {
     [self.updater checkForUpdates:sender];
 }
 -(void) openPrefrences: (id) sender {
-//    [self.prefrencesWindow makeKeyAndOrderFront:self];
-}
--(void)windowDidResignKey:(NSNotification *)notification
-{
-
-}
--(void)windowDidResignMain:(NSNotification *)notification{
-//    [self hideWindow];
+    [self.prefrencesWindow makeKeyAndOrderFront:self];
 }
 
 -(void)statusItemClicked: (id) sender{
@@ -87,8 +78,6 @@
 }
 
 -(void)statusItemSecondaryClicked: (id) sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
-                                                        object:nil];
     [self.statusBarButton popUpStatusItemMenu:self.statusMenu];
 }
 - (void)menuDidClose:(NSMenu *)menu{

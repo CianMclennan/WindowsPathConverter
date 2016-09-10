@@ -46,6 +46,8 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.alphaValue = 0.0f;
+    self.window.delegate = self;
+    [self addListeners];
 }
 
 -(void)controlTextDidChange:(NSNotification *)obj
@@ -140,5 +142,10 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
 }
 
 #pragma mark - WindowDelegate
+
+-(void)windowDidResignKey:(NSNotification *)notification
+{
+    [self hideWindow];
+}
 
 @end

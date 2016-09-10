@@ -46,7 +46,6 @@
 		829E29B06AAFC6F68665679D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		851AE9EB1D775D4400BE894B /* MainWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowViewController.h; sourceTree = "<group>"; };
 		851AE9EC1D775D4400BE894B /* MainWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowViewController.m; sourceTree = "<group>"; };
-		851AE9F01D77707D00BE894B /* StatusItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemDelegate.h; sourceTree = "<group>"; };
 		853398EB1D20424300759D9A /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		853398EC1D20424300759D9A /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		853398EE1D20440700759D9A /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
@@ -144,7 +143,6 @@
 				85A914921D7368A0003F9EE9 /* AddDriveViewController.m */,
 				851AE9EB1D775D4400BE894B /* MainWindowViewController.h */,
 				851AE9EC1D775D4400BE894B /* MainWindowViewController.m */,
-				851AE9F01D77707D00BE894B /* StatusItemDelegate.h */,
 				853398F11D204FA000759D9A /* Classes */,
 				8579F7911CCE4670007FC32B /* Supporting Files */,
 			);

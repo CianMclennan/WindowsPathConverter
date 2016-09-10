@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "StatusItemDelegate.h"
 
-@interface MainWindowViewController : NSViewController <NSWindowDelegate, StatusItemDelegate>
+@interface MainWindowViewController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *output;
 @property (weak) IBOutlet NSTextField *input;
