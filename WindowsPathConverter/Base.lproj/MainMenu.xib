@@ -673,7 +673,6 @@
             <connections>
                 <outlet property="input" destination="aGz-Er-l8y" id="ig3-2b-por"/>
                 <outlet property="output" destination="5Mg-pf-nRL" id="vW7-pp-v5Y"/>
-                <outlet property="shortCutView" destination="HlD-wg-4Hy" id="Ptz-hD-gEP"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="LJr-yA-tIn"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="seU-lw-HA2"/>
             </connections>
@@ -690,6 +689,7 @@
         <viewController id="FxI-AQ-eCb" customClass="PrefrencesViewController">
             <connections>
                 <outlet property="modalWindow" destination="2vO-xQ-GHT" id="yfG-gx-6Mw"/>
+                <outlet property="shortCutView" destination="SoX-PY-mtc" id="ohp-85-Rji"/>
                 <outlet property="tableView" destination="jBu-jq-s3m" id="WJe-uc-jzt"/>
                 <outlet property="view" destination="Eps-B0-dJA" id="wv4-KI-5dS"/>
                 <outlet property="window" destination="5Gm-vn-EO9" id="OLr-Aq-2jK"/>
@@ -745,26 +745,16 @@ DQ
                             <action selector="openButtonPressed:" target="7G5-Rm-XEt" id="IZ4-pM-Jur"/>
                         </connections>
                     </button>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="HlD-wg-4Hy" customClass="MASShortcutView">
-                        <rect key="frame" x="20" y="20" width="97" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="97" id="q7g-RL-1mu"/>
-                        </constraints>
-                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="bottom" secondItem="UXC-ay-FIm" secondAttribute="bottom" id="141-5g-M9C"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="Da9-qL-9tR"/>
                     <constraint firstItem="dOK-qf-DyE" firstAttribute="leading" secondItem="UXC-ay-FIm" secondAttribute="trailing" constant="12" symbolic="YES" id="I0M-TN-SXZ"/>
                     <constraint firstItem="dOK-qf-DyE" firstAttribute="top" secondItem="5Mg-pf-nRL" secondAttribute="bottom" constant="8" id="IQd-6l-PcO"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="trailing" secondItem="aGz-Er-l8y" secondAttribute="trailing" id="O3M-nw-MRw"/>
-                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="top" secondItem="UXC-ay-FIm" secondAttribute="top" id="S27-ag-Mtd"/>
                     <constraint firstAttribute="bottom" secondItem="dOK-qf-DyE" secondAttribute="bottom" constant="20" symbolic="YES" id="YpJ-rm-PQY"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="arX-ML-w1Z"/>
                     <constraint firstAttribute="trailing" secondItem="dOK-qf-DyE" secondAttribute="trailing" constant="20" id="bhB-9O-Ifi"/>
-                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="centerY" secondItem="UXC-ay-FIm" secondAttribute="centerY" id="jLK-8H-ftx"/>
                     <constraint firstItem="UXC-ay-FIm" firstAttribute="centerY" secondItem="dOK-qf-DyE" secondAttribute="centerY" id="lAe-Ot-LQh"/>
-                    <constraint firstItem="HlD-wg-4Hy" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="m5g-ah-PQl"/>
                     <constraint firstAttribute="trailing" secondItem="aGz-Er-l8y" secondAttribute="trailing" constant="20" symbolic="YES" id="nGT-bu-Efw"/>
                     <constraint firstItem="aGz-Er-l8y" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="o8R-te-r6M"/>
                     <constraint firstItem="5Mg-pf-nRL" firstAttribute="top" secondItem="aGz-Er-l8y" secondAttribute="bottom" constant="8" id="oDm-Bv-gAS"/>
@@ -774,20 +764,20 @@ DQ
         </window>
         <window title="Prefrences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="5Gm-vn-EO9">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="782" y="426" width="349" height="173"/>
+            <rect key="contentRect" x="782" y="426" width="367" height="266"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="Eps-B0-dJA">
-                <rect key="frame" x="0.0" y="0.0" width="349" height="173"/>
+                <rect key="frame" x="0.0" y="0.0" width="367" height="266"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-33-aYj">
-                        <rect key="frame" x="10" y="39" width="329" height="124"/>
+                        <rect key="frame" x="10" y="39" width="347" height="217"/>
                         <clipView key="contentView" drawsBackground="NO" id="Vgt-lg-oSH">
-                            <rect key="frame" x="1" y="0.0" width="327" height="108"/>
+                            <rect key="frame" x="1" y="0.0" width="345" height="201"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gYG-Ea-l1c" viewBased="YES" id="jBu-jq-s3m">
-                                    <rect key="frame" x="0.0" y="0.0" width="371" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="371" height="178"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -869,7 +859,7 @@ DQ
                             <nil key="backgroundColor"/>
                         </clipView>
                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="M4L-jD-RKF">
-                            <rect key="frame" x="1" y="107" width="327" height="16"/>
+                            <rect key="frame" x="1" y="201" width="345" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1dC-VA-6GQ">
@@ -909,19 +899,28 @@ DQ
                             <action selector="addButtonPressed:" target="FxI-AQ-eCb" id="w0V-h5-6EW"/>
                         </connections>
                     </button>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="SoX-PY-mtc" customClass="MASShortcutView">
+                        <rect key="frame" x="66" y="10" width="291" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="jAJ-bE-CU9"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Qhv-HG-PSn" firstAttribute="top" secondItem="9SV-33-aYj" secondAttribute="bottom" constant="10" id="0fH-kc-plQ"/>
                     <constraint firstItem="N76-ut-2du" firstAttribute="centerY" secondItem="Qhv-HG-PSn" secondAttribute="centerY" id="58T-jP-r7M"/>
+                    <constraint firstItem="SoX-PY-mtc" firstAttribute="leading" secondItem="N76-ut-2du" secondAttribute="trailing" constant="8" id="8PM-42-DZi"/>
                     <constraint firstItem="9SV-33-aYj" firstAttribute="leading" secondItem="Eps-B0-dJA" secondAttribute="leading" constant="10" id="9H4-Vg-mOF"/>
+                    <constraint firstItem="SoX-PY-mtc" firstAttribute="centerY" secondItem="N76-ut-2du" secondAttribute="centerY" id="KtP-Xk-TO3"/>
                     <constraint firstAttribute="trailing" secondItem="9SV-33-aYj" secondAttribute="trailing" constant="10" id="UmX-rV-fO6"/>
+                    <constraint firstAttribute="trailing" secondItem="SoX-PY-mtc" secondAttribute="trailing" constant="10" id="fSS-bb-f2L"/>
                     <constraint firstItem="Qhv-HG-PSn" firstAttribute="leading" secondItem="9SV-33-aYj" secondAttribute="leading" id="jLB-3y-sGM"/>
                     <constraint firstAttribute="bottom" secondItem="Qhv-HG-PSn" secondAttribute="bottom" constant="10" id="oRg-EN-7Rs"/>
                     <constraint firstItem="N76-ut-2du" firstAttribute="leading" secondItem="Qhv-HG-PSn" secondAttribute="trailing" constant="8" symbolic="YES" id="rRq-ow-ZB3"/>
                     <constraint firstItem="9SV-33-aYj" firstAttribute="top" secondItem="Eps-B0-dJA" secondAttribute="top" constant="10" id="z47-BN-DxH"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-242.5" y="387.5"/>
+            <point key="canvasLocation" x="-233.5" y="434"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2vO-xQ-GHT">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>

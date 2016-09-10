@@ -69,6 +69,7 @@
 		85A914921D7368A0003F9EE9 /* AddDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriveViewController.m; sourceTree = "<group>"; };
 		85B41FAF1CFF39E700E5C28D /* PathConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathConverter.h; sourceTree = "<group>"; };
 		85B41FB01CFF39E700E5C28D /* PathConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathConverter.m; sourceTree = "<group>"; };
+		85B5BCD41D845C6800B51C7A /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		85B767B41D1328BB009E09AA /* CustomStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusItem.h; sourceTree = "<group>"; };
 		85B767B51D1328BB009E09AA /* CustomStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusItem.m; sourceTree = "<group>"; };
 		85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingWindow.h; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 				8579F7991CCE4671007FC32B /* Info.plist */,
 				858607771D7615E300818F5B /* dsa_pub.pem */,
 				8579F7921CCE4670007FC32B /* main.m */,
+				85B5BCD41D845C6800B51C7A /* constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

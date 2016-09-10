@@ -8,6 +8,7 @@
 
 #import "PrefrencesViewController.h"
 #import "WindowsPathConverterSettings.h"
+#import "constants.h"
 
 @interface PrefrencesViewController ()
 
@@ -21,6 +22,18 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    // Associate the shortcut view with user defaults
+    self.shortCutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut;
+    
+    // Associate the preference key with an action
+    [[MASShortcutBinder sharedBinder]
+     bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
+     toAction:^{
+         [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
+                                                             object:nil];
+     }];
+    
 }
 
 -(void)viewWillAppear{

@@ -9,16 +9,11 @@
 #import "MainWindowViewController.h"
 #import "PathConverter.h"
 #import "WindowsPathConverterSettings.h"
-#import <MASShortcut/Shortcut.h>
 
-#define STATUS_ITEM_CLICKED @"statusItemClicked"
-#define STATUS_ITEM_SECONDARY_CLICKED @"statusItemSecondaryClicked"
-
-static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
+#import "constants.h"
 
 @interface MainWindowViewController ()
 
-@property (weak) IBOutlet MASShortcutView *shortCutView;
 @property (strong, nonatomic) PathConverter* pathConverter;
 
 @end
@@ -31,16 +26,6 @@ static NSString *const kPreferenceGlobalShortcut = @"GlobalShortcut";
     self.input.delegate = self;
     
     self.pathConverter = [[PathConverter alloc] initWithConversionStrings:WindowsPathConverterSettings.sharedSettings.volumes];
-    
-    // Associate the shortcut view with user defaults
-    self.shortCutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut;
-    
-    // Associate the preference key with an action
-    [[MASShortcutBinder sharedBinder]
-     bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
-     toAction:^{
-         [self toggleWindow];
-     }];
     
     [self hideWindow];
     

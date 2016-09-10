@@ -13,9 +13,7 @@
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 
-#define STATUS_ITEM_CLICKED @"statusItemClicked"
-#define STATUS_ITEM_SECONDARY_CLICKED @"statusItemSecondaryClicked"
-
+#import "constants.h"
 
 @interface AppDelegate ()
 
