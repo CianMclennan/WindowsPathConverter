@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
@@ -14,12 +14,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="input" destination="aGz-Er-l8y" id="3tl-fk-7lK"/>
-                <outlet property="output" destination="5Mg-pf-nRL" id="v5x-Qg-TLO"/>
                 <outlet property="prefrencesWindow" destination="5Gm-vn-EO9" id="tO0-Wz-T7m"/>
-                <outlet property="shortCutView" destination="HlD-wg-4Hy" id="9OM-al-2dx"/>
                 <outlet property="updater" destination="5eB-Sy-loI" id="SaR-QW-7Hu"/>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -677,6 +673,7 @@
             <connections>
                 <outlet property="input" destination="aGz-Er-l8y" id="ig3-2b-por"/>
                 <outlet property="output" destination="5Mg-pf-nRL" id="vW7-pp-v5Y"/>
+                <outlet property="shortCutView" destination="HlD-wg-4Hy" id="Ptz-hD-gEP"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="LJr-yA-tIn"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="seU-lw-HA2"/>
             </connections>
@@ -778,7 +775,7 @@ DQ
         <window title="Prefrences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="5Gm-vn-EO9">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="782" y="426" width="349" height="173"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="Eps-B0-dJA">
                 <rect key="frame" x="0.0" y="0.0" width="349" height="173"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -786,11 +783,11 @@ DQ
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-33-aYj">
                         <rect key="frame" x="10" y="39" width="329" height="124"/>
                         <clipView key="contentView" drawsBackground="NO" id="Vgt-lg-oSH">
-                            <rect key="frame" x="1" y="0.0" width="327" height="123"/>
+                            <rect key="frame" x="1" y="0.0" width="327" height="108"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gYG-Ea-l1c" viewBased="YES" id="jBu-jq-s3m">
-                                    <rect key="frame" x="0.0" y="0.0" width="371" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="371" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
