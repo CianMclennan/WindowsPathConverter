@@ -13,6 +13,7 @@
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 #import "WindowsPathConverterSettings.h"
+#import "PrefrencesWindowController.h"
 
 #import "constants.h"
 
@@ -27,9 +28,8 @@
 
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
     if (WindowsPathConverterSettings.sharedSettings.isFirstLaunch){
-        [self.prefrencesWindow makeKeyAndOrderFront:self];
+        [[PrefrencesWindowController sharedPrefsWindowController] showWindow:nil];
         WindowsPathConverterSettings.sharedSettings.isFirstLaunch = NO;
     }
     
@@ -73,7 +73,7 @@
     [self.updater checkForUpdates:sender];
 }
 -(void) openPrefrences: (id) sender {
-    [self.prefrencesWindow makeKeyAndOrderFront:self];
+    [[PrefrencesWindowController sharedPrefsWindowController] showWindow:nil];
 }
 
 -(void)statusItemClicked: (id) sender{

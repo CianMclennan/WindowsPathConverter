@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DBPrefsWindowController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MASShortcut-MASShortcut.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A525EF5A52C6D05B2392617C0238F7C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>560ABDDE1168AE16EFF9F5E4DF011F5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>90D556B3EE317016F370668625957438</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E1CD368B83CE2370B066D5F5A8DCD811</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF43A0591803A00B534B49DB019812DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

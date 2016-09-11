@@ -14,6 +14,14 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>http://creativecommons.org/licenses/by/3.0/</string>
+			<key>Title</key>
+			<string>DBPrefsWindowController</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2012-2013, Vadim Shpakovski
 All rights reserved.
 

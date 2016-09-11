@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## DBPrefsWindowController
+
+http://creativecommons.org/licenses/by/3.0/
+
 ## MASShortcut
 
 Copyright (c) 2012-2013, Vadim Shpakovski

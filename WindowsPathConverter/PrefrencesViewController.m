@@ -8,11 +8,14 @@
 
 #import "PrefrencesViewController.h"
 #import "WindowsPathConverterSettings.h"
+#import "PrefrencesWindowController.h"
 #import "constants.h"
 
 @interface PrefrencesViewController ()
 
 @property (nonatomic, strong) NSArray* settingsArray;
+
+@property (nonatomic, strong) NSWindow *window;
 
 @end
 
@@ -22,6 +25,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.window = self.view.window;
     
     // Associate the shortcut view with user defaults
     self.shortCutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut;
@@ -41,7 +46,7 @@
     [self.tableView reloadData];
 }
 - (IBAction)addButtonPressed:(NSButton *)sender {
-    [self.window beginSheet:self.modalWindow completionHandler:^(NSModalResponse returnCode) {
+    [[PrefrencesWindowController sharedPrefsWindowController].window beginSheet:self.modalWindow completionHandler:^(NSModalResponse returnCode) {
         [self.tableView reloadData];
     }];
 }

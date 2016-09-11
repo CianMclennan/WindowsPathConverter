@@ -1,10 +1,13 @@
 PODS:
+  - DBPrefsWindowController (0.0.1)
   - MASShortcut (2.3.3)
 
 DEPENDENCIES:
+  - DBPrefsWindowController
   - MASShortcut
 
 SPEC CHECKSUMS:
+  DBPrefsWindowController: ce0fe8de832c6931302736de5d938e98d2fd59ed
   MASShortcut: 38a76c9ea927de770c0a97ae28b15d18d6268b24
 
 COCOAPODS: 0.39.0

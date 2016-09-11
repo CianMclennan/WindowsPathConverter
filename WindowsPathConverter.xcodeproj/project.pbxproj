@@ -26,6 +26,8 @@
 		85B767B61D1328BB009E09AA /* CustomStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B767B51D1328BB009E09AA /* CustomStatusItem.m */; };
 		85D0F7601D1E60AF000C5931 /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */; };
 		85DFB0341CCF9C0800C3942A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 85DFB0331CCF9C0800C3942A /* settings.json */; };
+		85E88D2F1D8578B100B6FA9E /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85E88D2E1D8578B100B6FA9E /* Preferences.xib */; };
+		85E88D321D857C1000B6FA9E /* PrefrencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E88D311D857C1000B6FA9E /* PrefrencesWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +77,9 @@
 		85D0F75E1D1E60AF000C5931 /* FloatingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingWindow.h; sourceTree = "<group>"; };
 		85D0F75F1D1E60AF000C5931 /* FloatingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingWindow.m; sourceTree = "<group>"; };
 		85DFB0331CCF9C0800C3942A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
+		85E88D2E1D8578B100B6FA9E /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		85E88D301D857C1000B6FA9E /* PrefrencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefrencesWindowController.h; sourceTree = "<group>"; };
+		85E88D311D857C1000B6FA9E /* PrefrencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefrencesWindowController.m; sourceTree = "<group>"; };
 		ABAD0C5C711D7FD75FC82C40 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +143,8 @@
 			children = (
 				8579F78E1CCE4670007FC32B /* AppDelegate.h */,
 				8579F78F1CCE4670007FC32B /* AppDelegate.m */,
+				85E88D301D857C1000B6FA9E /* PrefrencesWindowController.h */,
+				85E88D311D857C1000B6FA9E /* PrefrencesWindowController.m */,
 				85A9148D1D732346003F9EE9 /* PrefrencesViewController.h */,
 				85A9148E1D732346003F9EE9 /* PrefrencesViewController.m */,
 				85A914911D7368A0003F9EE9 /* AddDriveViewController.h */,
@@ -154,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8579F7961CCE4671007FC32B /* MainMenu.xib */,
+				85E88D2E1D8578B100B6FA9E /* Preferences.xib */,
 				85DFB0331CCF9C0800C3942A /* settings.json */,
 				8579F7941CCE4670007FC32B /* Assets.xcassets */,
 				8579F7991CCE4671007FC32B /* Info.plist */,
@@ -260,6 +268,7 @@
 				858607781D7615E300818F5B /* dsa_pub.pem in Resources */,
 				8579F7951CCE4671007FC32B /* Assets.xcassets in Resources */,
 				8579F7981CCE4671007FC32B /* MainMenu.xib in Resources */,
+				85E88D2F1D8578B100B6FA9E /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +338,7 @@
 				85B41FB11CFF39E700E5C28D /* PathConverter.m in Sources */,
 				851AE9EE1D775D4400BE894B /* MainWindowViewController.m in Sources */,
 				853398F01D20440700759D9A /* JSONParser.m in Sources */,
+				85E88D321D857C1000B6FA9E /* PrefrencesWindowController.m in Sources */,
 				853398ED1D20424300759D9A /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

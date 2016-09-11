@@ -12,7 +12,6 @@
 
 @interface PrefrencesViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 
-@property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSWindow *modalWindow;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet MASShortcutView *shortCutView;
