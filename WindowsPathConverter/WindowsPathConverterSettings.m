@@ -35,7 +35,7 @@
     } else {
         volumes[volume] = @[windowsDrive];
     }
-    [self updateSettingsWithObject:volumes forKey:VOLUMES];
+    [self setObject:volumes forKey:VOLUMES];
     [self save];
 }
 
@@ -43,7 +43,7 @@
 {
     NSMutableDictionary* volumes = [self.volumes mutableCopy];
     [volumes removeObjectForKey:volume];
-    [self updateSettingsWithObject:volumes forKey:VOLUMES];
+    [self setObject:volumes forKey:VOLUMES];
     [self save];
 }
 
@@ -63,7 +63,7 @@
         [volumes removeObjectForKey:volume];
     }    
     
-    [self updateSettingsWithObject:volumes forKey:VOLUMES];
+    [self setObject:volumes forKey:VOLUMES];
     [self save];
 }
 
@@ -79,7 +79,7 @@
 }
 -(void)setShouldOpenPreferencesOnStartup:(BOOL)shouldOpenPreferencesOnStartup{
     _shouldOpenPreferencesOnStartup = [NSNumber numberWithBool:shouldOpenPreferencesOnStartup];
-    [self updateSettingsWithObject:_shouldOpenPreferencesOnStartup forKey:OPEN_ON_START];
+    [self setObject:_shouldOpenPreferencesOnStartup forKey:OPEN_ON_START];
     [self save];
 }
 

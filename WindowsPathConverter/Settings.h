@@ -12,8 +12,10 @@
 
 @property (readonly) NSDictionary* settingsDictionary;
 
+- (instancetype)initWithTemplateSettings: (NSURL*) settingsFile override: (BOOL) shouldOverride;
 - (instancetype)initWithJSONFilePath:(NSURL*)url;
-- (void) updateSettingsWithObject:(id) object forKey:(NSString*) key;
+- (void) setObject:(id) object forKey:(NSString*) key;
+- (void) removeObjectForKey:(NSString*) key;
 - (BOOL) saveToURL:(NSURL*) url;
 - (BOOL) save;
 
