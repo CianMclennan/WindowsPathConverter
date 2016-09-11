@@ -8,7 +8,7 @@
 
 #import <DBPrefsWindowController/DBPrefsWindowController.h>
 
-@interface PrefrencesWindowController : DBPrefsWindowController
+@interface PrefrencesWindowController : DBPrefsWindowController <NSWindowDelegate>
 
 @property (strong, nonatomic) IBOutlet NSView *generalPreferenceView;
 @property (strong, nonatomic) IBOutlet NSView *updatesPreferenceView;

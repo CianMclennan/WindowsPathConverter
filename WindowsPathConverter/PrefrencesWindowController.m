@@ -16,8 +16,7 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.window.delegate = self;
 }
 
 - (void)setupToolbar{
@@ -29,6 +28,20 @@
     // Optional configuration settings.
     [self setCrossFade:[[NSUserDefaults standardUserDefaults] boolForKey:@"fade"]];
     [self setShiftSlowsAnimation:[[NSUserDefaults standardUserDefaults] boolForKey:@"shiftSlowsAnimation"]];
+}
+-(void)showWindow:(id)sender{
+    [super showWindow:sender];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+-(void)windowDidBecomeKey:(NSNotification *)notification{
+    ProcessSerialNumber psn = { 0, kCurrentProcess };
+    TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+}
+
+-(void)windowWillClose:(NSNotification *)notification{
+    ProcessSerialNumber psn = { 0, kCurrentProcess };
+    TransformProcessType(&psn, kProcessTransformToUIElementApplication);
 }
 
 @end
