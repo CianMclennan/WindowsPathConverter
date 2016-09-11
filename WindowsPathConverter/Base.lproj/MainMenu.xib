@@ -920,6 +920,21 @@ DQ
                     <constraint firstItem="9SV-33-aYj" firstAttribute="top" secondItem="Eps-B0-dJA" secondAttribute="top" constant="10" id="z47-BN-DxH"/>
                 </constraints>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="76D8F670-3D72-45C1-8880-D0BDF0FA530E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="3Fs-bq-BOm">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="sOr-ue-mwT"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="x6d-b4-b7s"/>
+                    <toolbarItem implicitItemIdentifier="7091007D-27CA-4968-B6B3-F5F373743980" label="Windows Drive" paletteLabel="Windows Drive" tag="-1" image="WindowsDriveIcon" id="mSV-uP-dm2"/>
+                    <toolbarItem implicitItemIdentifier="3775ADB7-6015-48BF-9B1F-FF6977908512" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="rXG-Jb-I6h"/>
+                    <toolbarItem implicitItemIdentifier="3A9E35DC-63F7-42EA-A763-9CA8E296E54F" label="Update" paletteLabel="Update" tag="-1" image="Update Icon" id="IGL-jT-Yel"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="mSV-uP-dm2"/>
+                    <toolbarItem reference="rXG-Jb-I6h"/>
+                    <toolbarItem reference="x6d-b4-b7s"/>
+                    <toolbarItem reference="IGL-jT-Yel"/>
+                </defaultToolbarItems>
+            </toolbar>
             <point key="canvasLocation" x="-233.5" y="434"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2vO-xQ-GHT">
@@ -1016,6 +1031,9 @@ Gw
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="Update Icon" width="256" height="256"/>
+        <image name="WindowsDriveIcon" width="256" height="256"/>
     </resources>
 </document>
