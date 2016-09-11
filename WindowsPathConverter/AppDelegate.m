@@ -12,6 +12,7 @@
 #import "CustomStatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
+#import "WindowsPathConverterSettings.h"
 
 #import "constants.h"
 
@@ -26,6 +27,12 @@
 
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    
+    if (WindowsPathConverterSettings.sharedSettings.isFirstLaunch){
+        [self.prefrencesWindow makeKeyAndOrderFront:self];
+        WindowsPathConverterSettings.sharedSettings.isFirstLaunch = NO;
+    }
+    
     // Add status bar butotn to the status bar.
     [self statusBarButton];
 }

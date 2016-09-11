@@ -8,7 +8,7 @@
 
 #define VOLUMES @"volumes"
 #define DOCUMENTS_DIRECTORY [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"WindowsPathConverter"]
-
+#define IS_FIRST_LAUNCH @"isFirstLaunch"
 #import "WindowsPathConverterSettings.h"
 
 
@@ -16,7 +16,9 @@
 
 @end
 
-@implementation WindowsPathConverterSettings
+@implementation WindowsPathConverterSettings{
+    NSNumber* _isFirstLaunch; // to be used in isFirstLauch setter and getter.
+}
 
 -(NSDictionary *)volumes{
     return self.settingsDictionary[VOLUMES];
@@ -61,6 +63,22 @@
     }    
     
     [self updateSettingsWithObject:volumes forKey:VOLUMES];
+    [self save];
+}
+
+-(BOOL)isFirstLaunch{
+    if(_isFirstLaunch) return _isFirstLaunch.boolValue;
+    NSNumber* firstLaunch = self.settingsDictionary[IS_FIRST_LAUNCH];
+    if (firstLaunch){
+        _isFirstLaunch = firstLaunch;
+        return _isFirstLaunch.boolValue;
+    }
+    _isFirstLaunch = [NSNumber numberWithBool:YES];
+    return self.isFirstLaunch = YES;
+}
+-(void)setIsFirstLaunch:(BOOL)isFirstLaunch{
+    _isFirstLaunch = [NSNumber numberWithBool:isFirstLaunch];
+    [self updateSettingsWithObject:_isFirstLaunch forKey:IS_FIRST_LAUNCH];
     [self save];
 }
 
