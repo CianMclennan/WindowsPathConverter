@@ -11,7 +11,6 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSMenuDelegate>
 
-@property (weak) IBOutlet NSWindow *prefrencesWindow;
 @property (weak) IBOutlet SUUpdater *updater;
 @property (readonly) NSStatusItem* statusBarButton;
 
