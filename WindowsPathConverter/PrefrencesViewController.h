@@ -15,8 +15,10 @@
 @property (weak) IBOutlet NSWindow *modalWindow;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet MASShortcutView *shortCutView;
+@property (weak) IBOutlet NSButton *shouldOpenOnStart;
 
 - (IBAction)addButtonPressed:(NSButton *)sender;
 - (IBAction)subtractButtonPressed:(NSButton *)sender;
+- (IBAction)showPreferencesToggle:(NSButton *)sender;
 
 @end

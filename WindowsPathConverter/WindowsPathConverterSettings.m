@@ -8,7 +8,8 @@
 
 #define VOLUMES @"volumes"
 #define DOCUMENTS_DIRECTORY [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"WindowsPathConverter"]
-#define IS_FIRST_LAUNCH @"isFirstLaunch"
+#define OPEN_ON_START @"openOnStart"
+#define OPEN_ON_START_DEFAULT YES
 #import "WindowsPathConverterSettings.h"
 
 
@@ -17,7 +18,7 @@
 @end
 
 @implementation WindowsPathConverterSettings{
-    NSNumber* _isFirstLaunch; // to be used in isFirstLauch setter and getter.
+    NSNumber* _shouldOpenPreferencesOnStartup; // to be used in isFirstLauch setter and getter.
 }
 
 -(NSDictionary *)volumes{
@@ -66,19 +67,19 @@
     [self save];
 }
 
--(BOOL)isFirstLaunch{
-    if(_isFirstLaunch) return _isFirstLaunch.boolValue;
-    NSNumber* firstLaunch = self.settingsDictionary[IS_FIRST_LAUNCH];
-    if (firstLaunch){
-        _isFirstLaunch = firstLaunch;
-        return _isFirstLaunch.boolValue;
+-(BOOL)shouldOpenPreferencesOnStartup{
+    if(_shouldOpenPreferencesOnStartup) return _shouldOpenPreferencesOnStartup.boolValue;
+    NSNumber* shouldOpenPreferencesOnStartup = self.settingsDictionary[OPEN_ON_START];
+    if (shouldOpenPreferencesOnStartup){
+        _shouldOpenPreferencesOnStartup = shouldOpenPreferencesOnStartup;
+        return _shouldOpenPreferencesOnStartup.boolValue;
     }
-    _isFirstLaunch = [NSNumber numberWithBool:YES];
-    return self.isFirstLaunch = YES;
+    _shouldOpenPreferencesOnStartup = [NSNumber numberWithBool:OPEN_ON_START_DEFAULT];
+    return self.shouldOpenPreferencesOnStartup = OPEN_ON_START_DEFAULT;
 }
--(void)setIsFirstLaunch:(BOOL)isFirstLaunch{
-    _isFirstLaunch = [NSNumber numberWithBool:isFirstLaunch];
-    [self updateSettingsWithObject:_isFirstLaunch forKey:IS_FIRST_LAUNCH];
+-(void)setShouldOpenPreferencesOnStartup:(BOOL)shouldOpenPreferencesOnStartup{
+    _shouldOpenPreferencesOnStartup = [NSNumber numberWithBool:shouldOpenPreferencesOnStartup];
+    [self updateSettingsWithObject:_shouldOpenPreferencesOnStartup forKey:OPEN_ON_START];
     [self save];
 }
 

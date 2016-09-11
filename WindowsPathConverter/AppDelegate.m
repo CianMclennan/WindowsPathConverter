@@ -12,6 +12,7 @@
 #import "CustomStatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
+#import <MASShortcut/Shortcut.h>
 #import "WindowsPathConverterSettings.h"
 #import "PrefrencesWindowController.h"
 
@@ -28,10 +29,17 @@
 
 #pragma mark - App Delegate Methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    if (WindowsPathConverterSettings.sharedSettings.isFirstLaunch){
+    if (WindowsPathConverterSettings.sharedSettings.shouldOpenPreferencesOnStartup){
         [[PrefrencesWindowController sharedPrefsWindowController] showWindow:nil];
-        WindowsPathConverterSettings.sharedSettings.isFirstLaunch = NO;
     }
+    
+    // Associate the preference key with an action
+    [[MASShortcutBinder sharedBinder]
+     bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
+     toAction:^{
+         [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
+                                                             object:nil];
+     }];
     
     // Add status bar butotn to the status bar.
     [self statusBarButton];

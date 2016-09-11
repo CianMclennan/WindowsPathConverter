@@ -162,30 +162,42 @@
             <point key="canvasLocation" x="646.5" y="592.5"/>
         </customView>
         <customView id="6ZF-9j-czD">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="61"/>
+            <rect key="frame" x="0.0" y="0.0" width="429" height="95"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="gTm-7b-Toc" customClass="MASShortcutView">
-                    <rect key="frame" x="90" y="20" width="319" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="jIq-tj-fey"/>
-                    </constraints>
-                </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mTE-kg-UOE">
-                    <rect key="frame" x="18" y="22" width="64" height="17"/>
+                    <rect key="frame" x="18" y="56" width="64" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Shortcut: " id="8Ct-Yy-nDO">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="OYY-7y-YGi">
+                    <rect key="frame" x="18" y="18" width="196" height="18"/>
+                    <buttonCell key="cell" type="check" title="Open Preferences at Startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dlp-Hj-kRS">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showPreferencesToggle:" target="o8Z-4t-BkG" id="xWS-cU-rmS"/>
+                    </connections>
+                </button>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="gTm-7b-Toc" customClass="MASShortcutView">
+                    <rect key="frame" x="90" y="54" width="319" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="jIq-tj-fey"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
+                <constraint firstItem="OYY-7y-YGi" firstAttribute="leading" secondItem="mTE-kg-UOE" secondAttribute="leading" id="55F-5i-tij"/>
                 <constraint firstItem="gTm-7b-Toc" firstAttribute="top" secondItem="6ZF-9j-czD" secondAttribute="top" constant="20" symbolic="YES" id="Gy7-wE-8wC"/>
+                <constraint firstItem="OYY-7y-YGi" firstAttribute="top" secondItem="gTm-7b-Toc" secondAttribute="bottom" constant="20" id="I4t-aF-U5l"/>
                 <constraint firstItem="gTm-7b-Toc" firstAttribute="centerY" secondItem="mTE-kg-UOE" secondAttribute="centerY" id="Jru-R8-JSt"/>
-                <constraint firstAttribute="bottom" secondItem="gTm-7b-Toc" secondAttribute="bottom" constant="20" symbolic="YES" id="Rd9-GG-yMN"/>
                 <constraint firstItem="mTE-kg-UOE" firstAttribute="leading" secondItem="6ZF-9j-czD" secondAttribute="leading" constant="20" symbolic="YES" id="S79-9z-svZ"/>
                 <constraint firstAttribute="trailing" secondItem="gTm-7b-Toc" secondAttribute="trailing" constant="20" symbolic="YES" id="SVt-3x-NV8"/>
+                <constraint firstAttribute="bottom" secondItem="OYY-7y-YGi" secondAttribute="bottom" constant="20" symbolic="YES" id="ghC-n5-QTB"/>
                 <constraint firstItem="gTm-7b-Toc" firstAttribute="leading" secondItem="mTE-kg-UOE" secondAttribute="trailing" constant="10" id="mAt-2H-ofB"/>
             </constraints>
             <point key="canvasLocation" x="646.5" y="846.5"/>
@@ -218,6 +230,7 @@
             <connections>
                 <outlet property="modalWindow" destination="vAC-9l-Nag" id="pen-DO-OnI"/>
                 <outlet property="shortCutView" destination="gTm-7b-Toc" id="t9P-Af-Lxf"/>
+                <outlet property="shouldOpenOnStart" destination="OYY-7y-YGi" id="Mb4-dy-IsB"/>
                 <outlet property="tableView" destination="SNf-bz-vpw" id="Iem-Fc-6vY"/>
                 <outlet property="view" destination="c22-O7-iKe" id="9xk-Wh-9MB"/>
             </connections>

@@ -31,14 +31,7 @@
     // Associate the shortcut view with user defaults
     self.shortCutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut;
     
-    // Associate the preference key with an action
-    [[MASShortcutBinder sharedBinder]
-     bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
-     toAction:^{
-         [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
-                                                             object:nil];
-     }];
-    
+    self.shouldOpenOnStart.state = WindowsPathConverterSettings.sharedSettings.shouldOpenPreferencesOnStartup;
 }
 
 -(void)viewWillAppear{
@@ -61,6 +54,10 @@
         [WindowsPathConverterSettings.sharedSettings removeWindowsDrive:windowsDrive fromMacVolume:macVolume];
         [self.tableView reloadData];
     }
+}
+
+- (IBAction)showPreferencesToggle:(NSButton *)sender {
+    WindowsPathConverterSettings.sharedSettings.shouldOpenPreferencesOnStartup = [NSNumber numberWithInteger: sender.state].boolValue;
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{

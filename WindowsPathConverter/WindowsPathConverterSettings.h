@@ -11,7 +11,7 @@
 @interface WindowsPathConverterSettings : Settings
 
 @property(readonly) NSDictionary* volumes;
-@property(nonatomic) BOOL isFirstLaunch;
+@property(nonatomic) BOOL shouldOpenPreferencesOnStartup;
 
 + (WindowsPathConverterSettings*)sharedSettings;
 -(void) removeMacVolume:(NSString*) volume;
