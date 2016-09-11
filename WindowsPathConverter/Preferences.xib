@@ -159,7 +159,7 @@
                 <constraint firstItem="26o-0g-e2i" firstAttribute="leading" secondItem="b2e-zV-Tsy" secondAttribute="trailing" constant="8" symbolic="YES" id="irI-CO-oLb"/>
                 <constraint firstItem="26o-0g-e2i" firstAttribute="centerY" secondItem="b2e-zV-Tsy" secondAttribute="centerY" id="mBR-d8-scz"/>
             </constraints>
-            <point key="canvasLocation" x="467.5" y="484.5"/>
+            <point key="canvasLocation" x="646.5" y="592.5"/>
         </customView>
         <customView id="6ZF-9j-czD">
             <rect key="frame" x="0.0" y="0.0" width="429" height="61"/>
@@ -188,7 +188,7 @@
                 <constraint firstAttribute="trailing" secondItem="gTm-7b-Toc" secondAttribute="trailing" constant="20" symbolic="YES" id="SVt-3x-NV8"/>
                 <constraint firstItem="gTm-7b-Toc" firstAttribute="leading" secondItem="mTE-kg-UOE" secondAttribute="trailing" constant="10" id="mAt-2H-ofB"/>
             </constraints>
-            <point key="canvasLocation" x="467.5" y="738.5"/>
+            <point key="canvasLocation" x="646.5" y="846.5"/>
         </customView>
         <customView id="VbT-sB-LuP">
             <rect key="frame" x="0.0" y="0.0" width="435" height="61"/>
@@ -211,7 +211,7 @@
                 <constraint firstItem="rql-4D-j4j" firstAttribute="top" secondItem="VbT-sB-LuP" secondAttribute="top" constant="20" id="LHd-SG-eUs"/>
                 <constraint firstAttribute="bottom" secondItem="rql-4D-j4j" secondAttribute="bottom" constant="20" id="efY-rn-19r"/>
             </constraints>
-            <point key="canvasLocation" x="464.5" y="865.5"/>
+            <point key="canvasLocation" x="643.5" y="973.5"/>
         </customView>
         <customObject id="ROY-Dg-ULq" customClass="SUUpdater"/>
         <viewController id="o8Z-4t-BkG" customClass="PrefrencesViewController">
@@ -219,7 +219,7 @@
                 <outlet property="modalWindow" destination="vAC-9l-Nag" id="pen-DO-OnI"/>
                 <outlet property="shortCutView" destination="gTm-7b-Toc" id="t9P-Af-Lxf"/>
                 <outlet property="tableView" destination="SNf-bz-vpw" id="Iem-Fc-6vY"/>
-                <outlet property="view" destination="VbT-sB-LuP" id="DYf-bm-TZa"/>
+                <outlet property="view" destination="c22-O7-iKe" id="9xk-Wh-9MB"/>
             </connections>
         </viewController>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="vAC-9l-Nag">

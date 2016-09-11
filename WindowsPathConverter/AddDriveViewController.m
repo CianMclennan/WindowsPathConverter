@@ -8,6 +8,7 @@
 
 #import "AddDriveViewController.h"
 #import "WindowsPathConverterSettings.h"
+#import "PrefrencesWindowController.h"
 
 @interface AddDriveViewController ()
 
@@ -27,6 +28,7 @@
         [WindowsPathConverterSettings.sharedSettings assignWindowsDrive:self.windowsPath.stringValue
                                                             toMacVolume:self.macPath.stringValue];
         [WindowsPathConverterSettings.sharedSettings save];
+        [self windowWillClose];
         [self.window close];
         return;
     }
@@ -34,10 +36,12 @@
 }
 
 - (IBAction)cancelButton:(NSButton *)sender {
+    [self windowWillClose];
     [self.window close];
 }
 
--(void)windowWillClose:(NSNotification *)notification {
-    [[[self window] sheetParent] endSheet:[self window]];
+-(void)windowWillClose {
+    NSWindow* w = PrefrencesWindowController.sharedPrefsWindowController.window;
+    [w endSheet:self.window];
 }
 @end

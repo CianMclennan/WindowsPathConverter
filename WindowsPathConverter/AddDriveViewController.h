@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AddDriveViewController : NSViewController <NSWindowDelegate>
+@interface AddDriveViewController : NSViewController
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *windowsPath;
