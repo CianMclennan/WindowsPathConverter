@@ -9,13 +9,11 @@
 #import "AppDelegate.h"
 
 #import "FileReadWriter.h"
-#import "StatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 #import <MASShortcut/Shortcut.h>
 #import "WindowsPathConverterSettings.h"
 #import "PrefrencesWindowController.h"
-#import "StatusItem.h"
 
 #import "constants.h"
 
