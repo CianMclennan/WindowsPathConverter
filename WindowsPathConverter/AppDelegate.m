@@ -9,12 +9,13 @@
 #import "AppDelegate.h"
 
 #import "FileReadWriter.h"
-#import "CustomStatusItem.h"
+#import "StatusItem.h"
 #import "FloatingWindow.h"
 #import <AppKit/AppKit.h>
 #import <MASShortcut/Shortcut.h>
 #import "WindowsPathConverterSettings.h"
 #import "PrefrencesWindowController.h"
+#import "StatusItem.h"
 
 #import "constants.h"
 
@@ -32,7 +33,6 @@
     if (WindowsPathConverterSettings.sharedSettings.shouldOpenPreferencesOnStartup){
         [[PrefrencesWindowController sharedPrefsWindowController] showWindow:nil];
     }
-    
     // Associate the preference key with an action
     [[MASShortcutBinder sharedBinder]
      bindShortcutWithDefaultsKey:kPreferenceGlobalShortcut
@@ -53,16 +53,15 @@
 -(NSStatusItem*) statusBarButton
 {
     if (_statusBarButton) return _statusBarButton;
-    CustomStatusItem* statusView = [[CustomStatusItem alloc] init];
-    statusView.image = [NSImage imageNamed:@"toolbarIcon"];
-    statusView.target = self;
-    statusView.action = @selector(statusItemClicked:);
-    statusView.rightAction = @selector(statusItemSecondaryClicked:);
-    
+    StatusItem* statusItem = self.statusButton;
+    statusItem.image.image.template = YES;
+    statusItem.action = @selector(statusItemClicked:);
+    statusItem.rightAction = @selector(statusItemSecondaryClicked:);
     _statusBarButton = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
-    _statusBarButton.view = statusView;
+    _statusBarButton.view = statusItem;
     return _statusBarButton;
 }
+
 -(NSMenu*) statusMenu{
     if (_statusMenu) return _statusMenu;
     _statusMenu = [[NSMenu alloc] init];
@@ -87,14 +86,14 @@
 -(void)statusItemClicked: (id) sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:STATUS_ITEM_CLICKED
                                                         object:nil];
-    [(CustomStatusItem*)self.statusBarButton.view setHighlightState:NO];
+    [(StatusItem*)self.statusBarButton.view setHighlightState:NO];
 }
 
 -(void)statusItemSecondaryClicked: (id) sender{
     [self.statusBarButton popUpStatusItemMenu:self.statusMenu];
 }
 - (void)menuDidClose:(NSMenu *)menu{
-    [(CustomStatusItem*)self.statusBarButton.view setHighlightState:NO];
+    [(StatusItem*)self.statusBarButton.view setHighlightState:NO];
 }
 
 @end

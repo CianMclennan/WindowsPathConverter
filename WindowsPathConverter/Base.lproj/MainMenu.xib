@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="statusButton" destination="bbG-vv-m78" id="LjB-h2-Rti"/>
                 <outlet property="updater" destination="5eB-Sy-loI" id="SaR-QW-7Hu"/>
             </connections>
         </customObject>
@@ -744,5 +746,33 @@ DQ
             </view>
             <point key="canvasLocation" x="176" y="514"/>
         </window>
+        <customView id="bbG-vv-m78" customClass="StatusItem">
+            <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgj-GE-IR1">
+                    <rect key="frame" x="17" y="2" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hgj-GE-IR1" secondAttribute="height" multiplier="1:1" id="DPL-QA-b8u"/>
+                        <constraint firstAttribute="height" constant="18" id="Kdv-EP-qvX"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="toolbarIcon" id="G3b-1h-ckW"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hgj-GE-IR1" firstAttribute="centerX" secondItem="bbG-vv-m78" secondAttribute="centerX" id="2vl-VM-JCj"/>
+                <constraint firstItem="hgj-GE-IR1" firstAttribute="centerY" secondItem="bbG-vv-m78" secondAttribute="centerY" id="7K2-8e-jgU"/>
+                <constraint firstItem="hgj-GE-IR1" firstAttribute="top" secondItem="bbG-vv-m78" secondAttribute="top" constant="2" id="PBX-d7-udT"/>
+                <constraint firstAttribute="bottom" secondItem="hgj-GE-IR1" secondAttribute="bottom" constant="2" id="jpJ-39-cUo"/>
+            </constraints>
+            <connections>
+                <outlet property="image" destination="hgj-GE-IR1" id="w4T-01-Uf6"/>
+                <outlet property="target" destination="Voe-Tx-rLC" id="LUE-ge-Mzp"/>
+            </connections>
+            <point key="canvasLocation" x="434" y="359"/>
+        </customView>
     </objects>
+    <resources>
+        <image name="toolbarIcon" width="64" height="64"/>
+    </resources>
 </document>

@@ -1,21 +1,21 @@
 //
-//  CustomStatusItem.h
+//  StatusItem.h
 //  WindowsPathConverter
 //
-//  Created by Cian McLennan on 16/06/2016.
+//  Created by Cian McLennan on 14/09/2016.
 //  Copyright © 2016 Cian McLennan. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
-@interface CustomStatusItem : NSView
+@interface StatusItem : NSView
 
-@property (strong, nonatomic) NSImage* image;
-@property (strong, nonatomic) NSImage* altImage;
+@property (weak) IBOutlet NSImageView *image;
+
 @property (assign, nonatomic) BOOL clicked;
 @property (assign, nonatomic) SEL action;
 @property (assign, nonatomic) SEL rightAction;
-@property (weak, nonatomic) id target;
+@property (weak) IBOutlet id target;
 
 - (void)setHighlightState:(BOOL)state;
 
