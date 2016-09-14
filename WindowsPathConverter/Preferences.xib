@@ -203,11 +203,11 @@
             <point key="canvasLocation" x="646.5" y="846.5"/>
         </customView>
         <customView id="VbT-sB-LuP">
-            <rect key="frame" x="0.0" y="0.0" width="435" height="61"/>
+            <rect key="frame" x="0.0" y="0.0" width="429" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rql-4D-j4j">
-                    <rect key="frame" x="138" y="13" width="159" height="32"/>
+                    <rect key="frame" x="135" y="13" width="159" height="32"/>
                     <buttonCell key="cell" type="push" title="Check for Update..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkI-WB-Pgc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -223,7 +223,7 @@
                 <constraint firstItem="rql-4D-j4j" firstAttribute="top" secondItem="VbT-sB-LuP" secondAttribute="top" constant="20" id="LHd-SG-eUs"/>
                 <constraint firstAttribute="bottom" secondItem="rql-4D-j4j" secondAttribute="bottom" constant="20" id="efY-rn-19r"/>
             </constraints>
-            <point key="canvasLocation" x="643.5" y="973.5"/>
+            <point key="canvasLocation" x="646.5" y="973.5"/>
         </customView>
         <customObject id="ROY-Dg-ULq" customClass="SUUpdater"/>
         <viewController id="o8Z-4t-BkG" customClass="PrefrencesViewController">
